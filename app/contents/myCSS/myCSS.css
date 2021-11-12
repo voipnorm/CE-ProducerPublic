@@ -1,0 +1,2637 @@
+body {
+    background-image: url(../../images/ConnectWindow.jpg);
+}
+.button-center,
+.button-up,
+.button-down {
+    position: relative;
+    padding: 2px;
+    margin: 10px auto;
+    height: 20px;
+    width: 20px;
+
+    transition: all 0.2s linear;
+    border: none;
+    cursor: pointer;
+}
+.button-left,
+.button-right {
+    position: relative;
+    padding: 2px;
+    margin: 10px auto;
+    height: 20px;
+    width: 20px;
+
+    transition: all 0.2s linear;
+    border: none;
+    cursor: pointer;
+}
+#videoControlButtons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#welcome {
+    font-family: "CiscoSansTT Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: large;
+}
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
+}
+span {
+    /* change font/size/etc here */
+    font-family: "CiscoSansTT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: large;
+    text-align : center;
+    margin: auto;
+}
+.md-alert__container {
+    position: fixed;
+    z-index: 9999
+}
+.md-alert__container--top-left {
+    top: 1em;
+    left: 1em
+}
+.md-alert__container--top-center {
+    top: 1em;
+    left: 50%;
+    transform: translate(-50%)
+}
+.md-alert__container--top-right {
+    top: 1em;
+    right: 1em
+}
+.md-alert__container--bottom-left {
+    bottom: 1em;
+    left: 1em
+}
+.md-alert__container--bottom-center {
+    bottom: 1em;
+    left: 50%;
+    transform: translate(-50%)
+}
+.md-alert__container--bottom-right {
+    right: 1em;
+    bottom: 1em
+}
+.md-alert__container--call {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: row nowrap
+}
+.md-alert {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 21.375rem;
+    max-height: 19.25rem;
+    min-height: 4.875rem;
+    padding: .5rem .8125rem .5rem 1.0625rem;
+    margin-bottom: .5rem;
+    background-color: #fff;
+    background-color: var(--md-alert-background-theme,#fff);
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.08)
+}
+.md-alert__icon {
+    font-family: momentum-ui-icons;
+    font-size: 2.75rem;
+    line-height: 0
+}
+.md-alert__icon:before {
+    color: #00a0d1;
+    color: var(--md-alert-text-theme,#00a0d1);
+    content: "\f6d3"
+}
+.md-alert__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    flex-basis: 0%;
+    padding-right: .125rem;
+    padding-left: 1rem
+}
+.md-alert__title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #00a0d1;
+    color: var(--md-alert-text-theme,#00a0d1)
+}
+.md-alert__message,
+.md-alert__status {
+    font-family: "CiscoSansTT Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: .875rem;
+    line-height: 1.125rem
+}
+.md-alert__status {
+    color: #03612c;
+    color: var(--md-textColor-primary,#03612c)
+}
+.md-alert__message {
+    color: #292929;
+    color: var(--md-textColor-primary,#292929)
+}
+.md-alert__message,
+.md-alert__title {
+    max-width: 10rem;
+    word-wrap: break-word
+}
+.md-alert__button {
+    margin-left: .5rem
+}
+.md-alert.md-alert--success {
+    background-color: var(--md-alert-background-success,#fff)
+}
+.md-alert.md-alert--success .md-alert__icon:before {
+    color: #00ab50;
+    color: var(--md-alert-text-success,#00ab50);
+    content: "\f37b"
+}
+.md-alert.md-alert--success .md-alert__title {
+    color: #00ab50;
+    color: var(--md-alert-text-success,#00ab50)
+}
+.md-alert.md-alert--warning {
+    background-color: var(--md-alert-background-warning,#fff)
+}
+.md-alert.md-alert--warning .md-alert__icon:before {
+    color: #d97f00;
+    color: var(--md-alert-text-warning,#d97f00);
+    content: "\fc87"
+}
+.md-alert.md-alert--warning .md-alert__title {
+    color: #d97f00;
+    color: var(--md-alert-text-warning,#d97f00)
+}
+.md-alert.md-alert--error {
+    background-color: var(--md-alert-background-error,#fff)
+}
+.md-alert.md-alert--error .md-alert__icon:before {
+    color: #f7644a;
+    color: var(--md-alert-text-error,#f7644a);
+    content: "\fc87"
+}
+.md-alert.md-alert--error .md-alert__title {
+    color: #f7644a;
+    color: var(--md-alert-text-error,#f7644a)
+}
+.md-alert.md-alert--meeting .md-alert__content {
+    width: 10rem
+}
+.md-alert.md-alert--meeting .md-alert__content--wide {
+    width: 13rem
+}
+.md-alert.md-alert--meeting .md-alert__message,
+.md-alert.md-alert--meeting .md-alert__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.md-alert.md-alert--meeting .md-alert__title {
+    color: #000;
+    color: var(--md-alert-text-theme,#000)
+}
+
+.md-alert.md-alert--call {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 17.375rem;
+    max-height: 31.25rem;
+    min-height: 17.625rem;
+    padding: .75rem 1.0625rem 1.5625rem 1.0625rem;
+    margin-right: .9375rem
+}
+.md-alert.md-alert--call .md-alert__title {
+    padding-bottom: 1.5rem;
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 1.375rem;
+    color: #000;
+    color: var(--md-alert-text-theme,#000)
+}
+.md-alert.md-alert--call .md-alert__caller {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column nowrap
+}
+.md-alert.md-alert--call .md-alert__caller-title {
+    padding-top: .5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem
+}
+.md-alert.md-alert--call .md-alert__caller-subtitle {
+    font-size: .875rem;
+    line-height: 1.375rem
+}
+.md-alert.md-alert--call .md-alert--call--buttons {
+    padding-top: 1.5rem
+}
+.md-alert.md-alert--call .md-alert--call--buttons .md-icon {
+    fill: #fff
+}
+.md-alert.md-alert--call .md-list {
+    padding-top: .75rem
+}
+.md-alert.md-alert--call .md-list .md-list-item {
+    background-color: rgba(0,0,0,.04)
+}
+.md-alert.md-alert--call .md-list .md-list-item:hover {
+    background-color: rgba(0,0,0,.04)
+}
+.md-alert.md-alert--call .md-list .md-list-item:last-child {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px
+}
+.md-alert.md-alert--call .md-list .md-list-item-header {
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px
+}
+[class|=md-button__container] {
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 116px
+}
+[class|=md-button__container][class$='--small'] {
+    width: 104px
+}
+.md-button {
+    position: relative;
+    display: inline-block;
+    min-width: 4.5rem;
+    font-family: "CiscoSansTT Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 1.125rem;
+    height: 2.25rem;
+    padding: .375rem 1.125rem;
+    color: #000;
+    color: var(--md-button-secondary-text-color,#000);
+    background-color: #dedede;
+    background-color: var(--md-button-secondary-bg-color,#dedede);
+    border-color: transparent;
+    transition: background-color 150ms ease
+}
+.md-button > * {
+    font-size: inherit
+}
+.md-button .md-button__children {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: row nowrap
+}
+.md-button + .md-button {
+    margin-left: .3125rem
+}
+.md-button.active-state.focus-state,
+.md-button.active-state:focus,
+.md-button:active.focus-state,
+.md-button:active:focus {
+    box-shadow: none
+}
+.md-button.disabled,
+.md-button.md-button--disabled,
+.md-button[disabled] {
+    pointer-events: none;
+    cursor: default;
+    box-shadow: none
+}
+.md-button.disabled:focus,
+.md-button.disabled:hover,
+.md-button.md-button--disabled:focus,
+.md-button.md-button--disabled:hover,
+.md-button[disabled]:focus,
+.md-button[disabled]:hover {
+    box-shadow: none
+}
+.md-button .md-prepend {
+    margin-right: calc(2.25rem / 4)
+}
+.md-button .md-append {
+    margin-left: calc(2.25rem / 4)
+}
+.md-button.disabled,
+.md-button.md-button--disabled,
+.md-button[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.disabled:focus,
+.md-button.disabled:hover,
+.md-button.md-button--disabled:focus,
+.md-button.md-button--disabled:hover,
+.md-button[disabled]:focus,
+.md-button[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.focus-state,
+.md-button:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 4px 2px rgba(0,160,209,.75)
+}
+.md-button.focus-state:not(:focus-visible),
+.md-button:focus:not(:focus-visible) {
+    box-shadow: none
+}
+.md-button:hover {
+    color: #000;
+    color: var(--md-button-secondary-text-color,#000);
+    background-color: #ccc;
+    background-color: var(--md-button-secondary-hover-bg-color,#ccc)
+}
+.md-button.active,
+.md-button:active {
+    color: #000;
+    color: var(--md-button-secondary-text-color,#000);
+    background-color: #b2b2b2;
+    background-color: var(--md-button-secondary-pressed-bg-color,#b2b2b2)
+}
+.md--dark .md-button {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(255,255,255,.24);
+    background-color: var(--null,rgba(255,255,255,.24));
+    border-color: transparent
+}
+.md--dark .md-button.disabled,
+.md--dark .md-button.md-button--disabled,
+.md--dark .md-button[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.disabled:focus,
+.md--dark .md-button.disabled:hover,
+.md--dark .md-button.md-button--disabled:focus,
+.md--dark .md-button.md-button--disabled:hover,
+.md--dark .md-button[disabled]:focus,
+.md--dark .md-button[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.focus-state,
+.md--dark .md-button:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 4px 2px rgba(0,160,209,.75)
+}
+.md--dark .md-button.focus-state:not(:focus-visible),
+.md--dark .md-button:focus:not(:focus-visible) {
+    box-shadow: none
+}
+.md--dark .md-button:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(255,255,255,.32);
+    background-color: var(--null,rgba(255,255,255,.32))
+}
+.md--dark .md-button.active,
+.md--dark .md-button:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(255,255,255,.4);
+    background-color: var(--null,rgba(255,255,255,.4))
+}
+.md--contrast .md-button {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(0,0,0,.6);
+    background-color: var(--null,rgba(0,0,0,.6));
+    border-color: transparent
+}
+.md--contrast .md-button.disabled,
+.md--contrast .md-button.md-button--disabled,
+.md--contrast .md-button[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.disabled:focus,
+.md--contrast .md-button.disabled:hover,
+.md--contrast .md-button.md-button--disabled:focus,
+.md--contrast .md-button.md-button--disabled:hover,
+.md--contrast .md-button[disabled]:focus,
+.md--contrast .md-button[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(0,0,0,.68);
+    background-color: var(--null,rgba(0,0,0,.68))
+}
+.md--contrast .md-button.active,
+.md--contrast .md-button:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(0,0,0,.76);
+    background-color: var(--null,rgba(0,0,0,.76))
+}
+.md--contrast .md--dark .md-button,
+.md--contrast.md--dark .md-button {
+    color: #000;
+    color: var(--null,#000);
+    background-color: #fff;
+    background-color: var(--null,#fff);
+    border-color: transparent
+}
+.md--contrast .md--dark .md-button.disabled,
+.md--contrast .md--dark .md-button.md-button--disabled,
+.md--contrast .md--dark .md-button[disabled],
+.md--contrast.md--dark .md-button.disabled,
+.md--contrast.md--dark .md-button.md-button--disabled,
+.md--contrast.md--dark .md-button[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md--dark .md-button.disabled:focus,
+.md--contrast .md--dark .md-button.disabled:hover,
+.md--contrast .md--dark .md-button.md-button--disabled:focus,
+.md--contrast .md--dark .md-button.md-button--disabled:hover,
+.md--contrast .md--dark .md-button[disabled]:focus,
+.md--contrast .md--dark .md-button[disabled]:hover,
+.md--contrast.md--dark .md-button.disabled:focus,
+.md--contrast.md--dark .md-button.disabled:hover,
+.md--contrast.md--dark .md-button.md-button--disabled:focus,
+.md--contrast.md--dark .md-button.md-button--disabled:hover,
+.md--contrast.md--dark .md-button[disabled]:focus,
+.md--contrast.md--dark .md-button[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md--dark .md-button:hover,
+.md--contrast.md--dark .md-button:hover {
+    color: #000;
+    color: var(--null,#000);
+    background-color: rgba(255,255,255,.92);
+    background-color: var(--null,rgba(255,255,255,.92))
+}
+.md--contrast .md--dark .md-button.active,
+.md--contrast .md--dark .md-button:active,
+.md--contrast.md--dark .md-button.active,
+.md--contrast.md--dark .md-button:active {
+    color: #000;
+    color: var(--null,#000);
+    background-color: rgba(255,255,255,.84);
+    background-color: var(--null,rgba(255,255,255,.84))
+}
+.md-button + .md-button__label {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-align: center
+}
+.md-button.md-button--expand {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 100%;
+    display: block
+}
+.md-button.md-button--left {
+    text-align: left;
+    text-indent: .75rem
+}
+.md-button.md-button--right {
+    padding-right: .75rem;
+    text-align: right
+}
+.md-button.md-button--none {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0;
+    height: auto;
+    padding: 0;
+    min-width: 0
+}
+.md-button.md-button--none.disabled,
+.md-button.md-button--none.md-button--disabled,
+.md-button.md-button--none[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--none.disabled:focus,
+.md-button.md-button--none.disabled:hover,
+.md-button.md-button--none.md-button--disabled:focus,
+.md-button.md-button--none.md-button--disabled:hover,
+.md-button.md-button--none[disabled]:focus,
+.md-button.md-button--none[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--none:hover {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--none.active,
+.md-button.md-button--none:active {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--none .md-prepend {
+    margin-right: calc(100% / 4)
+}
+.md-button.md-button--none .md-append {
+    margin-left: calc(100% / 4)
+}
+.md-button.md-button--size-none {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0;
+    height: auto;
+    padding: 0;
+    min-width: 0
+}
+.md-button.md-button--size-none .md-prepend {
+    margin-right: calc(100% / 4)
+}
+.md-button.md-button--size-none .md-append {
+    margin-left: calc(100% / 4)
+}
+.md-button.md-button--28 {
+    font-size: 1rem;
+    line-height: 1.375rem;
+    border-radius: 1rem;
+    height: 1.75rem;
+    padding: .1875rem .875rem
+}
+.md-button.md-button--28 .md-prepend {
+    margin-right: calc(1.75rem / 4)
+}
+.md-button.md-button--28 .md-append {
+    margin-left: calc(1.75rem / 4)
+}
+.md-button.md-button--36 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 1.125rem;
+    height: 2.25rem;
+    padding: .375rem 1.125rem
+}
+.md-button.md-button--36 .md-prepend {
+    margin-right: calc(2.25rem / 4)
+}
+.md-button.md-button--36 .md-append {
+    margin-left: calc(2.25rem / 4)
+}
+.md-button.md-button--40 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    padding: .5rem 1.25rem
+}
+.md-button.md-button--40 .md-prepend {
+    margin-right: calc(2.5rem / 4)
+}
+.md-button.md-button--40 .md-append {
+    margin-left: calc(2.5rem / 4)
+}
+.md-button.md-button--52,
+.md-button.md-button--large {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 1.625rem;
+    height: 3.25rem;
+    padding: .875rem 1.625rem
+}
+.md-button.md-button--52 .md-prepend,
+.md-button.md-button--large .md-prepend {
+    margin-right: calc(3.25rem / 4)
+}
+.md-button.md-button--52 .md-append,
+.md-button.md-button--large .md-append {
+    margin-left: calc(3.25rem / 4)
+}
+.md-button.md-button--circle {
+    border-radius: 1000px;
+    padding: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .875rem;
+    line-height: .875rem
+}
+.md-button.md-button--circle[class*='--none'] {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0
+}
+.md-button.md-button--circle[class*='--none'].disabled,
+.md-button.md-button--circle[class*='--none'].md-button--disabled,
+.md-button.md-button--circle[class*='--none'][disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--circle[class*='--none'].disabled:focus,
+.md-button.md-button--circle[class*='--none'].disabled:hover,
+.md-button.md-button--circle[class*='--none'].md-button--disabled:focus,
+.md-button.md-button--circle[class*='--none'].md-button--disabled:hover,
+.md-button.md-button--circle[class*='--none'][disabled]:focus,
+.md-button.md-button--circle[class*='--none'][disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--circle[class*='--none']:hover {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--circle[class*='--none'].active,
+.md-button.md-button--circle[class*='--none']:active {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--circle[class*='--size-none'] {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0
+}
+.md-button.md-button--circle[class*='--20'] {
+    width: 1.25rem;
+    height: 1.25rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .5rem;
+    line-height: .5rem
+}
+.md-button.md-button--circle[class*='--28'] {
+    width: 1.75rem;
+    height: 1.75rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .75rem;
+    line-height: .75rem
+}
+.md-button.md-button--circle[class*='--32'] {
+    width: 2rem;
+    height: 2rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .875rem;
+    line-height: .875rem
+}
+.md-button.md-button--circle[class*='--36'] {
+    width: 2.25rem;
+    height: 2.25rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .875rem;
+    line-height: .875rem
+}
+.md-button.md-button--circle[class*='--40'] {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .875rem;
+    line-height: .875rem
+}
+.md-button.md-button--circle[class*='--44'],
+.md-button.md-button--circle[class*='--large'] {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: .875rem;
+    line-height: .875rem
+}
+.md-button.md-button--circle[class*='--56'] {
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: 1.5rem;
+    line-height: 1.5rem
+}
+.md-button.md-button--circle[class*='--68'] {
+    width: 4.25rem;
+    height: 4.25rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: 1.75rem;
+    line-height: 1.75rem
+}
+.md-button.md-button--circle[class*='--72'] {
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: 2rem;
+    line-height: 2rem
+}
+.md-button.md-button--circle[class*='--84'] {
+    width: 5.25rem;
+    height: 5.25rem;
+    min-width: 0;
+    min-height: 0;
+    font-size: 2.25rem;
+    line-height: 2.25rem
+}
+.md-button.md-button--circle.icon {
+    font-family: momentum-ui-icons
+}
+.md-button.md-button .md-loading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+.md-button.md-button--blue {
+    color: #fff;
+    color: var(--md-button-primary-text-color,#fff);
+    background-color: #00a0d1;
+    background-color: var(--md-button-primary-bg-color,#00a0d1);
+    border-color: transparent
+}
+.md-button.md-button--blue.disabled,
+.md-button.md-button--blue.md-button--disabled,
+.md-button.md-button--blue[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--blue.disabled:focus,
+.md-button.md-button--blue.disabled:hover,
+.md-button.md-button--blue.md-button--disabled:focus,
+.md-button.md-button--blue.md-button--disabled:hover,
+.md-button.md-button--blue[disabled]:focus,
+.md-button.md-button--blue[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--blue:hover {
+    color: #fff;
+    color: var(--md-button-primary-text-color,#fff);
+    background-color: #007aa3;
+    background-color: var(--md-button-primary-hover-bg-color,#007aa3)
+}
+.md-button.md-button--blue.active,
+.md-button.md-button--blue:active {
+    color: #fff;
+    color: var(--md-button-primary-text-color,#fff);
+    background-color: #005e7d;
+    background-color: var(--md-button-primary-pressed-bg-color,#005e7d)
+}
+.md--dark .md-button.md-button--blue.disabled,
+.md--dark .md-button.md-button--blue.md-button--disabled,
+.md--dark .md-button.md-button--blue[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--blue.disabled:focus,
+.md--dark .md-button.md-button--blue.disabled:hover,
+.md--dark .md-button.md-button--blue.md-button--disabled:focus,
+.md--dark .md-button.md-button--blue.md-button--disabled:hover,
+.md--dark .md-button.md-button--blue[disabled]:focus,
+.md--dark .md-button.md-button--blue[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--blue {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #007aa3;
+    background-color: var(--null,#007aa3);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--blue.disabled,
+.md--contrast .md-button.md-button--blue.md-button--disabled,
+.md--contrast .md-button.md-button--blue[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--blue.disabled:focus,
+.md--contrast .md-button.md-button--blue.disabled:hover,
+.md--contrast .md-button.md-button--blue.md-button--disabled:focus,
+.md--contrast .md-button.md-button--blue.md-button--disabled:hover,
+.md--contrast .md-button.md-button--blue[disabled]:focus,
+.md--contrast .md-button.md-button--blue[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--blue:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #005e7d;
+    background-color: var(--null,#005e7d)
+}
+.md--contrast .md-button.md-button--blue.active,
+.md--contrast .md-button.md-button--blue:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #064157;
+    background-color: var(--null,#064157)
+}
+.md-button.md-button--blue-outline {
+    color: #00a0d1;
+    color: var(--md-button-primary-outline-text-color,#00a0d1);
+    background-color: #fff;
+    background-color: var(--md-background-primary,#fff);
+    border-color: transparent;
+    border: 1px solid;
+    border-color: #00a0d1;
+    border-color: var(--md-button-primary-outline-color,#00a0d1)
+}
+.md-button.md-button--blue-outline.disabled,
+.md-button.md-button--blue-outline.md-button--disabled,
+.md-button.md-button--blue-outline[disabled] {
+    color: --md-button-disabled-text-color;
+    color: var(--null,--md-button-disabled-text-color);
+    fill: --md-button-disabled-text-color;
+    fill: var(--null,--md-button-disabled-text-color);
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--blue-outline.disabled:focus,
+.md-button.md-button--blue-outline.disabled:hover,
+.md-button.md-button--blue-outline.md-button--disabled:focus,
+.md-button.md-button--blue-outline.md-button--disabled:hover,
+.md-button.md-button--blue-outline[disabled]:focus,
+.md-button.md-button--blue-outline[disabled]:hover {
+    color: --md-button-disabled-text-color;
+    color: var(--null,--md-button-disabled-text-color);
+    fill: --md-button-disabled-text-color;
+    fill: var(--null,--md-button-disabled-text-color);
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--blue-outline:hover {
+    color: #fff;
+    color: var(--md-button-primary-text-color,#fff);
+    background-color: #007aa3;
+    background-color: var(--md-button-primary-hover-bg-color,#007aa3)
+}
+.md-button.md-button--blue-outline.active,
+.md-button.md-button--blue-outline:active {
+    color: #00a0d1;
+    color: var(--md-button-primary-text-color,#00a0d1);
+    background-color: #005e7d;
+    background-color: var(--md-button-primary-pressed-bg-color,#005e7d)
+}
+.md-button.md-button--red {
+    color: #fff;
+    color: var(--md-button-cancel-text-color,#fff);
+    background-color: #f7644a;
+    background-color: var(--md-button-cancel-bg-color,#f7644a);
+    border-color: transparent
+}
+.md-button.md-button--red.disabled,
+.md-button.md-button--red.md-button--disabled,
+.md-button.md-button--red[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--red.disabled:focus,
+.md-button.md-button--red.disabled:hover,
+.md-button.md-button--red.md-button--disabled:focus,
+.md-button.md-button--red.md-button--disabled:hover,
+.md-button.md-button--red[disabled]:focus,
+.md-button.md-button--red[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--red:hover {
+    color: #fff;
+    color: var(--md-button-cancel-text-color,#fff);
+    background-color: #d4371c;
+    background-color: var(--md-button-cancel-hover-bg-color,#d4371c)
+}
+.md-button.md-button--red.active,
+.md-button.md-button--red:active {
+    color: #fff;
+    color: var(--md-button-cancel-text-color,#fff);
+    background-color: #a12512;
+    background-color: var(--md-button-cancel-pressed-bg-color,#a12512)
+}
+.md--dark .md-button.md-button--red.disabled,
+.md--dark .md-button.md-button--red.md-button--disabled,
+.md--dark .md-button.md-button--red[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--red.disabled:focus,
+.md--dark .md-button.md-button--red.disabled:hover,
+.md--dark .md-button.md-button--red.md-button--disabled:focus,
+.md--dark .md-button.md-button--red.md-button--disabled:hover,
+.md--dark .md-button.md-button--red[disabled]:focus,
+.md--dark .md-button.md-button--red[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--red {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #d4371c;
+    background-color: var(--null,#d4371c);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--red.disabled,
+.md--contrast .md-button.md-button--red.md-button--disabled,
+.md--contrast .md-button.md-button--red[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--red.disabled:focus,
+.md--contrast .md-button.md-button--red.disabled:hover,
+.md--contrast .md-button.md-button--red.md-button--disabled:focus,
+.md--contrast .md-button.md-button--red.md-button--disabled:hover,
+.md--contrast .md-button.md-button--red[disabled]:focus,
+.md--contrast .md-button.md-button--red[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--red:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a12512;
+    background-color: var(--null,#a12512)
+}
+.md--contrast .md-button.md-button--red.active,
+.md--contrast .md-button.md-button--red:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #6e1d13;
+    background-color: var(--null,#6e1d13)
+}
+.md-button.md-button--green {
+    color: #fff;
+    color: var(--md-button-join-text-color,#fff);
+    background-color: #00ab50;
+    background-color: var(--md-button-join-bg-color,#00ab50);
+    border-color: transparent
+}
+.md-button.md-button--green.disabled,
+.md-button.md-button--green.md-button--disabled,
+.md-button.md-button--green[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--green.disabled:focus,
+.md-button.md-button--green.disabled:hover,
+.md-button.md-button--green.md-button--disabled:focus,
+.md-button.md-button--green.md-button--disabled:hover,
+.md-button.md-button--green[disabled]:focus,
+.md-button.md-button--green[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--md-button-disabled-bg-color,rgba(0,0,0,.04))
+}
+.md-button.md-button--green:hover {
+    color: #fff;
+    color: var(--md-button-join-text-color,#fff);
+    background-color: #00853c;
+    background-color: var(--md-button-join-hover-bg-color,#00853c)
+}
+.md-button.md-button--green.active,
+.md-button.md-button--green:active {
+    color: #fff;
+    color: var(--md-button-join-text-color,#fff);
+    background-color: #03612c;
+    background-color: var(--md-button-join-pressed-bg-color,#03612c)
+}
+.md--dark .md-button.md-button--green.disabled,
+.md--dark .md-button.md-button--green.md-button--disabled,
+.md--dark .md-button.md-button--green[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--green.disabled:focus,
+.md--dark .md-button.md-button--green.disabled:hover,
+.md--dark .md-button.md-button--green.md-button--disabled:focus,
+.md--dark .md-button.md-button--green.md-button--disabled:hover,
+.md--dark .md-button.md-button--green[disabled]:focus,
+.md--dark .md-button.md-button--green[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--green {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #00853c;
+    background-color: var(--null,#00853c);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--green.disabled,
+.md--contrast .md-button.md-button--green.md-button--disabled,
+.md--contrast .md-button.md-button--green[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--green.disabled:focus,
+.md--contrast .md-button.md-button--green.disabled:hover,
+.md--contrast .md-button.md-button--green.md-button--disabled:focus,
+.md--contrast .md-button.md-button--green.md-button--disabled:hover,
+.md--contrast .md-button.md-button--green[disabled]:focus,
+.md--contrast .md-button.md-button--green[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--green:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #03612c;
+    background-color: var(--null,#03612c)
+}
+.md--contrast .md-button.md-button--green.active,
+.md--contrast .md-button.md-button--green:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #08421f;
+    background-color: var(--null,#08421f)
+}
+.md-button.md-button--orange {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #f26b1d;
+    background-color: var(--null,#f26b1d);
+    border-color: transparent
+}
+.md-button.md-button--orange.disabled,
+.md-button.md-button--orange.md-button--disabled,
+.md-button.md-button--orange[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--orange.disabled:focus,
+.md-button.md-button--orange.disabled:hover,
+.md-button.md-button--orange.md-button--disabled:focus,
+.md-button.md-button--orange.md-button--disabled:hover,
+.md-button.md-button--orange[disabled]:focus,
+.md-button.md-button--orange[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--orange:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #c74f0e;
+    background-color: var(--null,#c74f0e)
+}
+.md-button.md-button--orange.active,
+.md-button.md-button--orange:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #914017;
+    background-color: var(--null,#914017)
+}
+.md--dark .md-button.md-button--orange.disabled,
+.md--dark .md-button.md-button--orange.md-button--disabled,
+.md--dark .md-button.md-button--orange[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--orange.disabled:focus,
+.md--dark .md-button.md-button--orange.disabled:hover,
+.md--dark .md-button.md-button--orange.md-button--disabled:focus,
+.md--dark .md-button.md-button--orange.md-button--disabled:hover,
+.md--dark .md-button.md-button--orange[disabled]:focus,
+.md--dark .md-button.md-button--orange[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--orange {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #c74f0e;
+    background-color: var(--null,#c74f0e);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--orange.disabled,
+.md--contrast .md-button.md-button--orange.md-button--disabled,
+.md--contrast .md-button.md-button--orange[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--orange.disabled:focus,
+.md--contrast .md-button.md-button--orange.disabled:hover,
+.md--contrast .md-button.md-button--orange.md-button--disabled:focus,
+.md--contrast .md-button.md-button--orange.md-button--disabled:hover,
+.md--contrast .md-button.md-button--orange[disabled]:focus,
+.md--contrast .md-button.md-button--orange[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--orange:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #914017;
+    background-color: var(--null,#914017)
+}
+.md--contrast .md-button.md-button--orange.active,
+.md--contrast .md-button.md-button--orange:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #59311e;
+    background-color: var(--null,#59311e)
+}
+.md-button.md-button--yellow {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #d97f00;
+    background-color: var(--null,#d97f00);
+    border-color: transparent
+}
+.md-button.md-button--yellow.disabled,
+.md-button.md-button--yellow.md-button--disabled,
+.md-button.md-button--yellow[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--yellow.disabled:focus,
+.md-button.md-button--yellow.disabled:hover,
+.md-button.md-button--yellow.md-button--disabled:focus,
+.md-button.md-button--yellow.md-button--disabled:hover,
+.md-button.md-button--yellow[disabled]:focus,
+.md-button.md-button--yellow[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--yellow:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a85f00;
+    background-color: var(--null,#a85f00)
+}
+.md-button.md-button--yellow.active,
+.md-button.md-button--yellow:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #7d4705;
+    background-color: var(--null,#7d4705)
+}
+.md--dark .md-button.md-button--yellow.disabled,
+.md--dark .md-button.md-button--yellow.md-button--disabled,
+.md--dark .md-button.md-button--yellow[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--yellow.disabled:focus,
+.md--dark .md-button.md-button--yellow.disabled:hover,
+.md--dark .md-button.md-button--yellow.md-button--disabled:focus,
+.md--dark .md-button.md-button--yellow.md-button--disabled:hover,
+.md--dark .md-button.md-button--yellow[disabled]:focus,
+.md--dark .md-button.md-button--yellow[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--yellow {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a85f00;
+    background-color: var(--null,#a85f00);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--yellow.disabled,
+.md--contrast .md-button.md-button--yellow.md-button--disabled,
+.md--contrast .md-button.md-button--yellow[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--yellow.disabled:focus,
+.md--contrast .md-button.md-button--yellow.disabled:hover,
+.md--contrast .md-button.md-button--yellow.md-button--disabled:focus,
+.md--contrast .md-button.md-button--yellow.md-button--disabled:hover,
+.md--contrast .md-button.md-button--yellow[disabled]:focus,
+.md--contrast .md-button.md-button--yellow[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--yellow:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #7d4705;
+    background-color: var(--null,#7d4705)
+}
+.md--contrast .md-button.md-button--yellow.active,
+.md--contrast .md-button.md-button--yellow:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #54330d;
+    background-color: var(--null,#54330d)
+}
+.md-button.md-button--mint {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #16a693;
+    background-color: var(--null,#16a693);
+    border-color: transparent
+}
+.md-button.md-button--mint.disabled,
+.md-button.md-button--mint.md-button--disabled,
+.md-button.md-button--mint[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--mint.disabled:focus,
+.md-button.md-button--mint.disabled:hover,
+.md-button.md-button--mint.md-button--disabled:focus,
+.md-button.md-button--mint.md-button--disabled:hover,
+.md-button.md-button--mint[disabled]:focus,
+.md-button.md-button--mint[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--mint:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #148579;
+    background-color: var(--null,#148579)
+}
+.md-button.md-button--mint.active,
+.md-button.md-button--mint:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #12615a;
+    background-color: var(--null,#12615a)
+}
+.md--dark .md-button.md-button--mint.disabled,
+.md--dark .md-button.md-button--mint.md-button--disabled,
+.md--dark .md-button.md-button--mint[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--mint.disabled:focus,
+.md--dark .md-button.md-button--mint.disabled:hover,
+.md--dark .md-button.md-button--mint.md-button--disabled:focus,
+.md--dark .md-button.md-button--mint.md-button--disabled:hover,
+.md--dark .md-button.md-button--mint[disabled]:focus,
+.md--dark .md-button.md-button--mint[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--mint {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #148579;
+    background-color: var(--null,#148579);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--mint.disabled,
+.md--contrast .md-button.md-button--mint.md-button--disabled,
+.md--contrast .md-button.md-button--mint[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--mint.disabled:focus,
+.md--contrast .md-button.md-button--mint.disabled:hover,
+.md--contrast .md-button.md-button--mint.md-button--disabled:focus,
+.md--contrast .md-button.md-button--mint.md-button--disabled:hover,
+.md--contrast .md-button.md-button--mint[disabled]:focus,
+.md--contrast .md-button.md-button--mint[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--mint:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #12615a;
+    background-color: var(--null,#12615a)
+}
+.md--contrast .md-button.md-button--mint.active,
+.md--contrast .md-button.md-button--mint:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #12423f;
+    background-color: var(--null,#12423f)
+}
+.md-button.md-button--purple {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #e060de;
+    background-color: var(--null,#e060de);
+    border-color: transparent
+}
+.md-button.md-button--purple.disabled,
+.md-button.md-button--purple.md-button--disabled,
+.md-button.md-button--purple[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--purple.disabled:focus,
+.md-button.md-button--purple.disabled:hover,
+.md-button.md-button--purple.md-button--disabled:focus,
+.md-button.md-button--purple.md-button--disabled:hover,
+.md-button.md-button--purple[disabled]:focus,
+.md-button.md-button--purple[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--purple:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #c233c4;
+    background-color: var(--null,#c233c4)
+}
+.md-button.md-button--purple.active,
+.md-button.md-button--purple:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #932099;
+    background-color: var(--null,#932099)
+}
+.md--dark .md-button.md-button--purple.disabled,
+.md--dark .md-button.md-button--purple.md-button--disabled,
+.md--dark .md-button.md-button--purple[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--purple.disabled:focus,
+.md--dark .md-button.md-button--purple.disabled:hover,
+.md--dark .md-button.md-button--purple.md-button--disabled:focus,
+.md--dark .md-button.md-button--purple.md-button--disabled:hover,
+.md--dark .md-button.md-button--purple[disabled]:focus,
+.md--dark .md-button.md-button--purple[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--purple {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #c233c4;
+    background-color: var(--null,#c233c4);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--purple.disabled,
+.md--contrast .md-button.md-button--purple.md-button--disabled,
+.md--contrast .md-button.md-button--purple[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--purple.disabled:focus,
+.md--contrast .md-button.md-button--purple.disabled:hover,
+.md--contrast .md-button.md-button--purple.md-button--disabled:focus,
+.md--contrast .md-button.md-button--purple.md-button--disabled:hover,
+.md--contrast .md-button.md-button--purple[disabled]:focus,
+.md--contrast .md-button.md-button--purple[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--purple:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #932099;
+    background-color: var(--null,#932099)
+}
+.md--contrast .md-button.md-button--purple.active,
+.md--contrast .md-button.md-button--purple:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #601e66;
+    background-color: var(--null,#601e66)
+}
+.md-button.md-button--pink {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #f0677e;
+    background-color: var(--null,#f0677e);
+    border-color: transparent
+}
+.md-button.md-button--pink.disabled,
+.md-button.md-button--pink.md-button--disabled,
+.md-button.md-button--pink[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--pink.disabled:focus,
+.md-button.md-button--pink.disabled:hover,
+.md-button.md-button--pink.md-button--disabled:focus,
+.md-button.md-button--pink.md-button--disabled:hover,
+.md-button.md-button--pink[disabled]:focus,
+.md-button.md-button--pink[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--pink:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #d43b52;
+    background-color: var(--null,#d43b52)
+}
+.md-button.md-button--pink.active,
+.md-button.md-button--pink:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a12a3a;
+    background-color: var(--null,#a12a3a)
+}
+.md--dark .md-button.md-button--pink.disabled,
+.md--dark .md-button.md-button--pink.md-button--disabled,
+.md--dark .md-button.md-button--pink[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--pink.disabled:focus,
+.md--dark .md-button.md-button--pink.disabled:hover,
+.md--dark .md-button.md-button--pink.md-button--disabled:focus,
+.md--dark .md-button.md-button--pink.md-button--disabled:hover,
+.md--dark .md-button.md-button--pink[disabled]:focus,
+.md--dark .md-button.md-button--pink[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--pink {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #d43b52;
+    background-color: var(--null,#d43b52);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--pink.disabled,
+.md--contrast .md-button.md-button--pink.md-button--disabled,
+.md--contrast .md-button.md-button--pink[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--pink.disabled:focus,
+.md--contrast .md-button.md-button--pink.disabled:hover,
+.md--contrast .md-button.md-button--pink.md-button--disabled:focus,
+.md--contrast .md-button.md-button--pink.md-button--disabled:hover,
+.md--contrast .md-button.md-button--pink[disabled]:focus,
+.md--contrast .md-button.md-button--pink[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--pink:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a12a3a;
+    background-color: var(--null,#a12a3a)
+}
+.md--contrast .md-button.md-button--pink.active,
+.md--contrast .md-button.md-button--pink:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #66262d;
+    background-color: var(--null,#66262d)
+}
+.md-button.md-button--cyan {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #00a3b5;
+    background-color: var(--null,#00a3b5);
+    border-color: transparent
+}
+.md-button.md-button--cyan.disabled,
+.md-button.md-button--cyan.md-button--disabled,
+.md-button.md-button--cyan[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--cyan.disabled:focus,
+.md-button.md-button--cyan.disabled:hover,
+.md-button.md-button--cyan.md-button--disabled:focus,
+.md-button.md-button--cyan.md-button--disabled:hover,
+.md-button.md-button--cyan[disabled]:focus,
+.md-button.md-button--cyan[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--cyan:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #008094;
+    background-color: var(--null,#008094)
+}
+.md-button.md-button--cyan.active,
+.md-button.md-button--cyan:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #066070;
+    background-color: var(--null,#066070)
+}
+.md--dark .md-button.md-button--cyan.disabled,
+.md--dark .md-button.md-button--cyan.md-button--disabled,
+.md--dark .md-button.md-button--cyan[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--cyan.disabled:focus,
+.md--dark .md-button.md-button--cyan.disabled:hover,
+.md--dark .md-button.md-button--cyan.md-button--disabled:focus,
+.md--dark .md-button.md-button--cyan.md-button--disabled:hover,
+.md--dark .md-button.md-button--cyan[disabled]:focus,
+.md--dark .md-button.md-button--cyan[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--contrast .md-button.md-button--cyan {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #008094;
+    background-color: var(--null,#008094);
+    border-color: transparent
+}
+.md--contrast .md-button.md-button--cyan.disabled,
+.md--contrast .md-button.md-button--cyan.md-button--disabled,
+.md--contrast .md-button.md-button--cyan[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--cyan.disabled:focus,
+.md--contrast .md-button.md-button--cyan.disabled:hover,
+.md--contrast .md-button.md-button--cyan.md-button--disabled:focus,
+.md--contrast .md-button.md-button--cyan.md-button--disabled:hover,
+.md--contrast .md-button.md-button--cyan[disabled]:focus,
+.md--contrast .md-button.md-button--cyan[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md--contrast .md-button.md-button--cyan:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #066070;
+    background-color: var(--null,#066070)
+}
+.md--contrast .md-button.md-button--cyan.active,
+.md--contrast .md-button.md-button--cyan:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #0a414d;
+    background-color: var(--null,#0a414d)
+}
+.md-button.md-button--white {
+    color: #000;
+    color: var(--null,#000);
+    background-color: #fff;
+    background-color: var(--null,#fff);
+    border-color: transparent;
+    box-shadow: 0 0 0 .0625rem #dedede,0 .0625rem .125rem 0 #dedede;
+    box-shadow: var(--null,0 0 0 .0625rem #dedede,0 .0625rem .125rem 0 #dedede)
+}
+.md-button.md-button--white.disabled,
+.md-button.md-button--white.md-button--disabled,
+.md-button.md-button--white[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--white.disabled:focus,
+.md-button.md-button--white.disabled:hover,
+.md-button.md-button--white.md-button--disabled:focus,
+.md-button.md-button--white.md-button--disabled:hover,
+.md-button.md-button--white[disabled]:focus,
+.md-button.md-button--white[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--white.focus-state,
+.md-button.md-button--white:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 4px 2px rgba(0,160,209,.75)
+}
+.md-button.md-button--white.focus-state:not(:focus-visible),
+.md-button.md-button--white:focus:not(:focus-visible) {
+    box-shadow: none
+}
+.md-button.md-button--white:hover {
+    color: #000;
+    color: var(--null,#000);
+    background-color: #ededed;
+    background-color: var(--null,#ededed)
+}
+.md-button.md-button--white.active,
+.md-button.md-button--white:active {
+    color: #000;
+    color: var(--null,#000);
+    background-color: #ccc;
+    background-color: var(--null,#ccc)
+}
+.md--dark .md-button.md-button--white {
+    box-shadow: none
+}
+.md--dark .md-button.md-button--white.disabled,
+.md--dark .md-button.md-button--white.md-button--disabled,
+.md--dark .md-button.md-button--white[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--white.disabled:focus,
+.md--dark .md-button.md-button--white.disabled:hover,
+.md--dark .md-button.md-button--white.md-button--disabled:focus,
+.md--dark .md-button.md-button--white.md-button--disabled:hover,
+.md--dark .md-button.md-button--white[disabled]:focus,
+.md--dark .md-button.md-button--white[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: rgba(255,255,255,.08);
+    background-color: var(--null,rgba(255,255,255,.08))
+}
+.md--dark .md-button.md-button--white.focus-state,
+.md--dark .md-button.md-button--white:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 4px 2px rgba(0,160,209,.75)
+}
+.md--dark .md-button.md-button--white.focus-state:not(:focus-visible),
+.md--dark .md-button.md-button--white:focus:not(:focus-visible) {
+    box-shadow: none
+}
+.md-button.md-button--dark-gray {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #292929;
+    background-color: var(--null,#292929);
+    border-color: transparent
+}
+.md-button.md-button--dark-gray.disabled,
+.md-button.md-button--dark-gray.md-button--disabled,
+.md-button.md-button--dark-gray[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--dark-gray.disabled:focus,
+.md-button.md-button--dark-gray.disabled:hover,
+.md-button.md-button--dark-gray.md-button--disabled:focus,
+.md-button.md-button--dark-gray.md-button--disabled:hover,
+.md-button.md-button--dark-gray[disabled]:focus,
+.md-button.md-button--dark-gray[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--dark-gray:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #3b3b3b;
+    background-color: var(--null,#3b3b3b)
+}
+.md-button.md-button--dark-gray.active,
+.md-button.md-button--dark-gray:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #292929;
+    background-color: var(--null,#292929)
+}
+.md-button.md-button--duck-egg {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #949494;
+    background-color: var(--null,#949494);
+    border-color: transparent
+}
+.md-button.md-button--duck-egg.disabled,
+.md-button.md-button--duck-egg.md-button--disabled,
+.md-button.md-button--duck-egg[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--duck-egg.disabled:focus,
+.md-button.md-button--duck-egg.disabled:hover,
+.md-button.md-button--duck-egg.md-button--disabled:focus,
+.md-button.md-button--duck-egg.md-button--disabled:hover,
+.md-button.md-button--duck-egg[disabled]:focus,
+.md-button.md-button--duck-egg[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--duck-egg:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #707070;
+    background-color: var(--null,#707070)
+}
+.md-button.md-button--duck-egg.active,
+.md-button.md-button--duck-egg:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #545454;
+    background-color: var(--null,#545454)
+}
+.md-button.md-button--violet {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #a87ff1;
+    background-color: var(--null,#a87ff1);
+    border-color: transparent
+}
+.md-button.md-button--violet.disabled,
+.md-button.md-button--violet.md-button--disabled,
+.md-button.md-button--violet[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--violet.disabled:focus,
+.md-button.md-button--violet.disabled:hover,
+.md-button.md-button--violet.md-button--disabled:focus,
+.md-button.md-button--violet.md-button--disabled:hover,
+.md-button.md-button--violet[disabled]:focus,
+.md-button.md-button--violet[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--violet:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #875ae1;
+    background-color: var(--null,#875ae1)
+}
+.md-button.md-button--violet.active,
+.md-button.md-button--violet:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #643abd;
+    background-color: var(--null,#643abd)
+}
+.md-button.md-button--link {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    color: #007aa3
+}
+.md-button.md-button--link.disabled,
+.md-button.md-button--link.md-button--disabled,
+.md-button.md-button--link[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--link.disabled:focus,
+.md-button.md-button--link.disabled:hover,
+.md-button.md-button--link.md-button--disabled:focus,
+.md-button.md-button--link.md-button--disabled:hover,
+.md-button.md-button--link[disabled]:focus,
+.md-button.md-button--link[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--link:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #ccc;
+    background-color: var(--null,#ccc)
+}
+.md-button.md-button--link.active,
+.md-button.md-button--link:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #b2b2b2;
+    background-color: var(--null,#b2b2b2)
+}
+.md-button.md-button--color-none {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent
+}
+.md-button.md-button--color-none.disabled,
+.md-button.md-button--color-none.md-button--disabled,
+.md-button.md-button--color-none[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--color-none.disabled:focus,
+.md-button.md-button--color-none.disabled:hover,
+.md-button.md-button--color-none.md-button--disabled:focus,
+.md-button.md-button--color-none.md-button--disabled:hover,
+.md-button.md-button--color-none[disabled]:focus,
+.md-button.md-button--color-none[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--color-none:hover {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--color-none.active,
+.md-button.md-button--color-none:active {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button[class*=md-button--icon] .md-icon {
+    fill: inherit
+}
+.md-button.md-button--icon {
+    color: inherit;
+    color: var(--md-textColor-secondary,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    fill: #545454;
+    fill: var(--md-textColor-secondary,#545454);
+    color: #545454;
+    color: var(--md-textColor-secondary,#545454);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0;
+    height: auto;
+    padding: 0;
+    min-width: 0
+}
+.md-button.md-button--icon.disabled,
+.md-button.md-button--icon.md-button--disabled,
+.md-button.md-button--icon[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--icon.disabled:focus,
+.md-button.md-button--icon.disabled:hover,
+.md-button.md-button--icon.md-button--disabled:focus,
+.md-button.md-button--icon.md-button--disabled:hover,
+.md-button.md-button--icon[disabled]:focus,
+.md-button.md-button--icon[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-button-disabled-text-color,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button.md-button--icon:hover {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--icon.active,
+.md-button.md-button--icon:active {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button.md-button--icon.disabled,
+.md-button.md-button--icon.md-button--disabled,
+.md-button.md-button--icon[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--md-textColor-disabled,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-textColor-disabled,rgba(0,0,0,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md-button.md-button--icon.disabled:focus,
+.md-button.md-button--icon.disabled:hover,
+.md-button.md-button--icon.md-button--disabled:focus,
+.md-button.md-button--icon.md-button--disabled:hover,
+.md-button.md-button--icon[disabled]:focus,
+.md-button.md-button--icon[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--md-textColor-disabled,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--md-textColor-disabled,rgba(0,0,0,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md-button.md-button--icon.hover-state,
+.md-button.md-button--icon:hover {
+    fill: #007aa3;
+    fill: var(--md-button-primary-bg-color,#007aa3);
+    color: #007aa3;
+    color: var(--md-button-primary-bg-color,#007aa3)
+}
+.md-button.md-button--icon.active-state,
+.md-button.md-button--icon:active {
+    fill: #005e7d;
+    fill: var(--md-button-primary-hover-bg-color,#005e7d);
+    color: #005e7d;
+    color: var(--md-button-primary-hover-bg-color,#005e7d)
+}
+.md-button.md-button--icon .md-prepend {
+    margin-right: calc(100% / 4)
+}
+.md-button.md-button--icon .md-append {
+    margin-left: calc(100% / 4)
+}
+.md-button.md-button--icon.md-button--icon-white {
+    fill: #fff;
+    fill: var(--null,#fff);
+    color: #fff;
+    color: var(--null,#fff)
+}
+.md-button.md-button--icon.md-button--icon-white.disabled,
+.md-button.md-button--icon.md-button--icon-white.md-button--disabled,
+.md-button.md-button--icon.md-button--icon-white[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md-button.md-button--icon.md-button--icon-white.disabled:focus,
+.md-button.md-button--icon.md-button--icon-white.disabled:hover,
+.md-button.md-button--icon.md-button--icon-white.md-button--disabled:focus,
+.md-button.md-button--icon.md-button--icon-white.md-button--disabled:hover,
+.md-button.md-button--icon.md-button--icon-white[disabled]:focus,
+.md-button.md-button--icon.md-button--icon-white[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md-button.md-button--icon.md-button--icon-white.hover-state,
+.md-button.md-button--icon.md-button--icon-white:hover {
+    fill: rgba(255,255,255,.92);
+    fill: var(--null,rgba(255,255,255,.92));
+    color: rgba(255,255,255,.92);
+    color: var(--null,rgba(255,255,255,.92))
+}
+.md-button.md-button--icon.md-button--icon-white.active-state,
+.md-button.md-button--icon.md-button--icon-white:active {
+    fill: rgba(255,255,255,.84);
+    fill: var(--null,rgba(255,255,255,.84));
+    color: rgba(255,255,255,.84);
+    color: var(--null,rgba(255,255,255,.84))
+}
+.md--contrast .md-button.md-button--icon.md-button--icon-white {
+    fill: #000;
+    fill: var(--null,#000);
+    color: #000;
+    color: var(--null,#000)
+}
+.md--contrast .md-button.md-button--icon.md-button--icon-white.disabled,
+.md--contrast .md-button.md-button--icon.md-button--icon-white.md-button--disabled,
+.md--contrast .md-button.md-button--icon.md-button--icon-white[disabled] {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md--contrast .md-button.md-button--icon.md-button--icon-white.disabled:focus,
+.md--contrast .md-button.md-button--icon.md-button--icon-white.disabled:hover,
+.md--contrast .md-button.md-button--icon.md-button--icon-white.md-button--disabled:focus,
+.md--contrast .md-button.md-button--icon.md-button--icon-white.md-button--disabled:hover,
+.md--contrast .md-button.md-button--icon.md-button--icon-white[disabled]:focus,
+.md--contrast .md-button.md-button--icon.md-button--icon-white[disabled]:hover {
+    color: rgba(255,255,255,.2);
+    color: var(--null,rgba(255,255,255,.2));
+    fill: rgba(255,255,255,.2);
+    fill: var(--null,rgba(255,255,255,.2));
+    background-color: transparent;
+    background-color: var(transparent,transparent)
+}
+.md--contrast .md-button.md-button--icon.md-button--icon-white.hover-state,
+.md--contrast .md-button.md-button--icon.md-button--icon-white:hover {
+    fill: #000;
+    fill: var(--null,#000);
+    color: #000;
+    color: var(--null,#000)
+}
+.md--contrast .md-button.md-button--icon.md-button--icon-white.active-state,
+.md--contrast .md-button.md-button--icon.md-button--icon-white:active {
+    fill: #000;
+    fill: var(--null,#000);
+    color: #000;
+    color: var(--null,#000)
+}
+.md-button--none {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0;
+    height: auto;
+    padding: 0;
+    min-width: 0
+}
+.md-button--none.disabled,
+.md-button--none.md-button--disabled,
+.md-button--none[disabled] {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button--none.disabled:focus,
+.md-button--none.disabled:hover,
+.md-button--none.md-button--disabled:focus,
+.md-button--none.md-button--disabled:hover,
+.md-button--none[disabled]:focus,
+.md-button--none[disabled]:hover {
+    color: rgba(0,0,0,.2);
+    color: var(--null,rgba(0,0,0,.2));
+    fill: rgba(0,0,0,.2);
+    fill: var(--null,rgba(0,0,0,.2));
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button--none:hover {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button--none.active,
+.md-button--none:active {
+    color: inherit;
+    color: var(--null,inherit);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button--none .md-prepend {
+    margin-right: calc(100% / 4)
+}
+.md-button--none .md-append {
+    margin-left: calc(100% / 4)
+}
+.md-button-group {
+    display: flex;
+    width: 100%
+}
+.md-button-group .md-button {
+    color: #000;
+    color: var(--null,#000);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    min-width: 0;
+    padding: .5rem 1.125rem;
+    margin-left: 0;
+    font-size: .875rem;
+    line-height: 1rem;
+    border: .0625rem solid #dedede;
+    border-radius: 0
+}
+.md-button-group .md-button.disabled,
+.md-button-group .md-button.md-button--disabled,
+.md-button-group .md-button[disabled] {
+    color: #949494;
+    color: var(--null,#949494);
+    fill: #949494;
+    fill: var(--null,#949494);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button-group .md-button.disabled:focus,
+.md-button-group .md-button.disabled:hover,
+.md-button-group .md-button.md-button--disabled:focus,
+.md-button-group .md-button.md-button--disabled:hover,
+.md-button-group .md-button[disabled]:focus,
+.md-button-group .md-button[disabled]:hover {
+    color: #949494;
+    color: var(--null,#949494);
+    fill: #949494;
+    fill: var(--null,#949494);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button-group .md-button:hover {
+    color: #000;
+    color: var(--null,#000);
+    background-color: rgba(0,0,0,.04);
+    background-color: var(--null,rgba(0,0,0,.04))
+}
+.md-button-group .md-button.active,
+.md-button-group .md-button:active {
+    color: #121212;
+    color: var(--null,#121212);
+    background-color: #c9f4ff;
+    background-color: var(--null,#c9f4ff)
+}
+.md-button-group .md-button:first-child {
+    border-bottom-left-radius: .25rem;
+    border-top-left-radius: .25rem
+}
+.md-button-group .md-button:not(:first-child) {
+    margin-left: -.0625rem
+}
+.md-button-group .md-button:last-child {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem
+}
+.md-button-group .md-button.md-button--icon-group {
+    width: auto;
+    padding: .625rem
+}
+.md-button-group .md-button.md-button--icon-group .md-icon {
+    fill: currentColor
+}
+.md-button-group.md-button-group--justified .md-button:not(.md-button--icon-group) {
+    flex-grow: 1;
+    width: 0
+}
+.md-button-group.md-button-group--pill .md-button {
+    width: auto;
+    padding: .625rem;
+    color: #000;
+    color: var(--md-textColor-primary,#000);
+    background-color: transparent;
+    background-color: var(--md-background-primary,transparent);
+    border-color: transparent;
+    border: 1px solid;
+    border-color: rgba(0,0,0,.12);
+    border-color: var(--md-separator-primary,rgba(0,0,0,.12));
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.04);
+    box-shadow: var(--null,0 2px 4px 0 rgba(0,0,0,.04))
+}
+.md-button-group.md-button-group--pill .md-button:first-of-type {
+    border-bottom-left-radius: 1.5625rem;
+    border-top-left-radius: 1.5625rem
+}
+.md-button-group.md-button-group--pill .md-button:last-of-type {
+    border-top-right-radius: 1.5625rem;
+    border-bottom-right-radius: 1.5625rem
+}
+.md-button-group.md-button-group--pill .md-button.disabled,
+.md-button-group.md-button-group--pill .md-button.md-button--disabled,
+.md-button-group.md-button-group--pill .md-button[disabled] {
+    color: #949494;
+    color: var(--md-textColor-disabled,#949494);
+    fill: #949494;
+    fill: var(--md-textColor-disabled,#949494);
+    background-color: transparent;
+    background-color: var(--md-background-quaternary,transparent)
+}
+.md-button-group.md-button-group--pill .md-button.disabled:focus,
+.md-button-group.md-button-group--pill .md-button.disabled:hover,
+.md-button-group.md-button-group--pill .md-button.md-button--disabled:focus,
+.md-button-group.md-button-group--pill .md-button.md-button--disabled:hover,
+.md-button-group.md-button-group--pill .md-button[disabled]:focus,
+.md-button-group.md-button-group--pill .md-button[disabled]:hover {
+    color: #949494;
+    color: var(--md-textColor-disabled,#949494);
+    fill: #949494;
+    fill: var(--md-textColor-disabled,#949494);
+    background-color: transparent;
+    background-color: var(--md-background-quaternary,transparent)
+}
+.md-button-group.md-button-group--pill .md-button:hover {
+    color: #000;
+    color: var(--md-textColor-primary,#000);
+    background-color: #c9f4ff;
+    background-color: var(--null,#c9f4ff)
+}
+.md-button-group.md-button-group--pill .md-button.active,
+.md-button-group.md-button-group--pill .md-button:active {
+    color: #000;
+    color: var(--md-textColor-primary,#000);
+    background-color: #91ebff;
+    background-color: var(--null,#91ebff)
+}
+.md-button-group.md-button-group--pill .md-button:focus {
+    background: #c9f4ff
+}
+.md-button-group.md-button-group--pill .md-button .md-icon {
+    fill: currentColor
+}
+.md-button-group.md-button-group--dark .md-button {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: transparent;
+    background-color: var(--null,transparent);
+    border-color: transparent;
+    padding: .3125rem 1.125rem;
+    font-size: .875rem;
+    line-height: 1.375rem;
+    border: .0625rem solid #3b3b3b
+}
+.md-button-group.md-button-group--dark .md-button.disabled,
+.md-button-group.md-button-group--dark .md-button.md-button--disabled,
+.md-button-group.md-button-group--dark .md-button[disabled] {
+    color: #545454;
+    color: var(--null,#545454);
+    fill: #545454;
+    fill: var(--null,#545454);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button-group.md-button-group--dark .md-button.disabled:focus,
+.md-button-group.md-button-group--dark .md-button.disabled:hover,
+.md-button-group.md-button-group--dark .md-button.md-button--disabled:focus,
+.md-button-group.md-button-group--dark .md-button.md-button--disabled:hover,
+.md-button-group.md-button-group--dark .md-button[disabled]:focus,
+.md-button-group.md-button-group--dark .md-button[disabled]:hover {
+    color: #545454;
+    color: var(--null,#545454);
+    fill: #545454;
+    fill: var(--null,#545454);
+    background-color: transparent;
+    background-color: var(--null,transparent)
+}
+.md-button-group.md-button-group--dark .md-button:hover {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: rgba(255,255,255,.12);
+    background-color: var(--null,rgba(255,255,255,.12))
+}
+.md-button-group.md-button-group--dark .md-button.active,
+.md-button-group.md-button-group--dark .md-button:active {
+    color: #fff;
+    color: var(--null,#fff);
+    background-color: #3b3b3b;
+    background-color: var(--null,#3b3b3b)
+}
+.md-button-group.md-button-group--dark .md-button.active {
+    font-family: "CiscoSansTT Bold","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+#configAlerts {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}

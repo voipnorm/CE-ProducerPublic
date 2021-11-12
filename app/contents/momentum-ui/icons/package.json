@@ -1,0 +1,112 @@
+{
+  "_from": "@momentum-ui/icons@^8.21.0",
+  "_id": "@momentum-ui/icons@8.21.0",
+  "_inBundle": false,
+  "_integrity": "sha512-mKdi/2hjxFpbm9aa7t3128znbHWSUslegSuprqfGzftZ8HaFIlUrp2feti1GGaq+8+R28+oI49omTOIhjbWtiA==",
+  "_location": "/@momentum-ui/icons",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@momentum-ui/icons@^8.21.0",
+    "name": "@momentum-ui/icons",
+    "escapedName": "@momentum-ui%2ficons",
+    "scope": "@momentum-ui",
+    "rawSpec": "^8.21.0",
+    "saveSpec": null,
+    "fetchSpec": "^8.21.0"
+  },
+  "_requiredBy": [
+    "/@momentum-ui/core"
+  ],
+  "_resolved": "https://registry.npmjs.org/@momentum-ui/icons/-/icons-8.21.0.tgz",
+  "_shasum": "47d7f195302368970aac27919dec848700b05834",
+  "_spec": "@momentum-ui/icons@^8.21.0",
+  "_where": "/Users/christno/WebstormProjects/CE-Remote/node_modules/@momentum-ui/core",
+  "author": {
+    "name": "Cisco Systems, Inc."
+  },
+  "bugs": {
+    "url": "https://github.com/momentum-design/momentum-ui/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Paul Jeter",
+      "email": "pauljeter@gmail.com"
+    },
+    {
+      "name": "Paul Witty",
+      "email": "pauwitty@cisco.com"
+    }
+  ],
+  "deprecated": false,
+  "description": "The Cisco Momentum UI Icons library allows developers to easily incorporate Webex Icons and CSS into any application.",
+  "devDependencies": {
+    "@momentum-ui/utils": "^6.2.15",
+    "@momentum-ui/webfonts-generator": "^2.3.0",
+    "autoprefixer": "^7.2.4",
+    "dotenv": "^6.1.0",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "handlebars": "^4.1.0",
+    "lodash": "^4.17.11",
+    "multi-glob": "^1.0.1",
+    "node-sass": "^4.11.0",
+    "node-watch": "^0.5.7",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.3.0",
+    "object-assign": "4.1.1",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "rimraf": "^2.6.3",
+    "svgson": "^3.1.0",
+    "yarn": "^1.12.1"
+  },
+  "homepage": "http://momentum.design/icons",
+  "keywords": [
+    "font",
+    "icon",
+    "Cisco",
+    "Webex",
+    "Cisco Spark",
+    "Spark UI",
+    "Momentum UI"
+  ],
+  "license": "MIT",
+  "main": "scss/momentum-ui-icons.scss",
+  "name": "@momentum-ui/icons",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momentum-design/momentum-ui.git"
+  },
+  "scripts": {
+    "build": "yarn build:lib",
+    "build:lib": "node ../tools/icons/icons-build.js momentum-ui-icons",
+    "ci:postpublish": "node ../tools/postpublish.js",
+    "ci:publishCDN": "run-s replaceFontURLs pushToS3",
+    "lint": "echo \"Success: lint\" && exit 0",
+    "prepublishOnly": "yarn build:lib",
+    "pushToS3": "node ../tools/pushToS3.js --library=icons",
+    "replaceFontURLs": "node ../tools/icons/replaceURLs.js icons",
+    "start": "yarn build:lib",
+    "test": "yarn build:lib",
+    "updateIconDatabase": "node ../tools/icons/updateIconDatabase.js icons",
+    "uploadIconSvgs": "node ../tools/icons/uploadSvgs.js icons",
+    "watch": "npm-watch"
+  },
+  "style": "css/momentum-ui-icons.css",
+  "version": "8.21.0",
+  "watch": {
+    "build": {
+      "patterns": [
+        "templates"
+      ],
+      "extensions": "hbs",
+      "quiet": false
+    }
+  }
+}
