@@ -15,6 +15,8 @@ var table;
 var statuschart = null, channelchart = null;
 var firstRun = true;
 
+let endpointTableData = [];
+
 ///ip/web/call-control shell.openExternal(href);
 
 export default async (data, args) => {
@@ -40,32 +42,24 @@ export default async (data, args) => {
             paginationSize: 25,         //allow 7 rows per page of data
             paginationSizeSelector:[25, 50, 100, 200, true],
             columns:[
-                {title: "Go Live", field:"connect", formatter: "html", headerSort:false, width:150},
+                {title:"System", field:"displayName", sorter:"string",headerFilter:false},
+                {title: "Go Live", field:"connect", formatter: "html", headerSort:false},
+                {title: "Mute Volume", field:"volume", formatter: "html", headerSort:false, width:100},
+                {title: "Set Volume", field:"setVolume", formatter: "html", headerSort:false, width:100},
                 {title:"Status", field:"status", formatter:"traffic", formatterParams:{
                     min:0,
                     max:10,
                     color:["green","orange","red"]
                 }},
-                {title:"Name", field:"displayName", sorter:"string",headerFilter:true},
-                {title:"Tags", field:"tags",headerFilter:true},
                 {title:"Status Info", field:"connectionStatus", sorter:"string", hozAlign:"right"},
-                //{title: "Call Status", field:"callStatus", sorter:"string", formatter: "html"},
+                {title: "Call Status", field:"callStatus", sorter:"string", formatter: "html"},
                 {title:"IP Address", field:"ip", formatter:customLinkformat},
-                {title:"Product", field:"product", sorter:"string"},
+                {title:"Tags", field:"tags",headerFilter:false},
             ],
             rowClick:function(e, row){
                 log.info(row);
             },
         });
-        /*
-        document.getElementById("download-csv-dash").addEventListener("click", function (event) {
-            event.preventDefault();
-            table.download("csv", "data.csv");
-        });
-        document.getElementById("download-json-dash").addEventListener("click", function (event) {
-            event.preventDefault();
-            table.download("json", "data.json");
-        });*/
 
         return
 
@@ -105,23 +99,6 @@ function checkStatus(data, args){
                         endpoint.status = 10;
                         break
                 }
-                switch(endpoint.upgradeChannel){
-                    case "Beta":
-                        beta ++
-                        break
-                    case "Latest":
-                        latest ++
-                        break
-                    case "Stable":
-                        stable ++
-                        break
-                    case "Preview":
-                        preview ++
-                        break
-                    default:
-
-                        break
-                }
                 let p = endpoint.product;
                 switch(true){
                     case /Cisco Webex Board.*/.test(p):
@@ -149,16 +126,21 @@ function checkStatus(data, args){
             connectivity = [connectE,disconectedE, connectedWithIssuesE];
             channel = [beta, stable, latest, preview];
             if(firstRun === true){
-                deviceResults(connectivity, channel, product);
                 firstRun = false;
             }
 
             let promises = data.items.map(async (endpoint) => {
                 log.info(endpoint)
                 if(endpoint.connectionStatus === "disconnected") return endpoint.callStatus = "Disconnected";
-                //endpoint.callStatus = await checkCallStatus(endpoint, args);
-                endpoint.connect = `<div class="form-check"><button id="connect&${endpoint.id}" value="${endpoint.id}" type="button" class="connectButton btn btn-danger btn-sm">Go Live</button>
-                          </label></div>`;
+                endpoint.callStatus = await checkCallStatus(endpoint, args);
+                endpoint.connect = `<div class="form-check">
+                                <button id="goLive.${endpoint.id}" value="goLive.${endpoint.id}" type="button" class="connectButton btn btn-success btn-sm">Go Live</button>
+                                <button id="muteMe.${endpoint.id}" value="muteMe.${endpoint.id}" type="button" style="display: none;" class="connectButton btn btn-danger btn-sm">Mute Me</button>
+                          </div>`;
+                endpoint.volume = `<div class="form-check"><input class="volumeCheck systemName form-check-input"
+                          type="checkbox" name="volumeSelect" value="muteVolume.${endpoint.id}" id="volume.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
+                endpoint.setVolume = `<div class="form-check"><input class="setVolumeCheck systemName form-check-input"
+                          type="checkbox" name="setVolumeSelect" value="setVolume.${endpoint.id}" id="setVolume.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
             })
             const results = await Promise.all(promises);
 
@@ -171,7 +153,7 @@ function checkStatus(data, args){
     })
 }
 
-function customLinkformat(cell, formatterParams){
+function customLinkformat(cell, formatterParams) {
     //cell - the cell component
     //formatterParams - parameters set for the column
     let key = cell.getValue()
@@ -179,173 +161,6 @@ function customLinkformat(cell, formatterParams){
     //(`<a href="${link}" class="js-external-link">${key}</a>`)
     return `<a class="js-external-link" href="${link}" >${key}</a>`; //return the contents of the cell;
 
-}
-
-function deviceResults(connectivity, channel, product){
-    //drawStatusChart(connectivity);
-    //drawChannelChart(channel);
-    //drawProductChart(product)
-}
-
-function drawStatusChart(data) {
-    statuschart = new Chart($('#connectivity'), {
-        type: 'pie',
-        data: {
-            labels: [
-                'Online',
-                'Offline',
-                'w/ Issues'
-            ],
-
-            datasets: getStatusDatasets(data)
-        },
-        options: {
-            responsive: false,
-
-            plugins: {
-                legend: {
-                    position: 'left',
-                },
-                title: {
-                    display: true,
-                    text: 'Connectivity'
-                }
-            },
-
-        },
-
-
-    });
-}
-
-function getStatusDatasets(data) {
-    let datasets = [{
-        data: data,
-        backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-
-        ],
-        borderColor: [
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 99, 132, 1)',
-            'rgba(255, 206, 86, 1)',
-
-        ],
-    }];
-
-    return datasets;
-}
-
-
-function drawChannelChart(data) {
-    channelchart = new Chart($('#channel'), {
-        type: 'pie',
-        data: {
-            labels: [
-                'Beta',
-                'Stable',
-                'Latest',
-                'Preview',
-            ],
-
-            datasets: getChannelDatasets(data)
-        },
-        options: {
-            responsive: false,
-
-            plugins: {
-                legend: {
-                    position: 'left',
-                },
-                title: {
-                    display: true,
-                    text: 'Software Channel'
-                }
-            },
-        },
-
-
-    });
-}
-
-function getChannelDatasets(data) {
-    let datasets = [{
-        data: data,
-        backgroundColor: [
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-
-        ],
-        borderColor: [
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-    }];
-
-    return datasets;
-}
-
-
-function drawProductChart(data) {
-    channelchart = new Chart($('#product'), {
-        type: 'pie',
-        data: {
-            labels: [
-                'Boards',
-                'RoomKits',
-                'Shares',
-                'Desktop',
-                'Legacy',
-            ],
-
-            datasets: getProductDatasets(data)
-        },
-        options: {
-            responsive: false,
-
-            plugins: {
-                legend: {
-                    position: 'left',
-                },
-                title: {
-                    display: true,
-                    text: 'Product Type'
-                }
-            },
-
-        },
-
-
-    });
-}
-
-function getProductDatasets(data) {
-    let datasets = [{
-        data: data,
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-        ],
-    }];
-
-    return datasets;
 }
 
 function checkCallStatus(endpoint, args){
@@ -370,32 +185,4 @@ function checkCallStatus(endpoint, args){
         }
     })
 }
-//notes for call status request Call[*].*
 
-//get data for people count etc
-function checkAnalytics(endpoint, args){
-    return new Promise(async (resolve, reject) => {
-        try{
-            endpoint.token = args.token;
-            endpoint.option = "callStatus";
-            if(endpoint.sipUrls.length > 1){
-                dashTabLog.info("Possible personal mode device");
-                resolve(`<div style="color:blue">Unknown</div>`);
-            }
-            let response = await dashRequest(endpoint);
-
-            //manipulate the results in here
-
-
-            /*if(Object.keys(response.result).length === 0) {
-                resolve(`<div style="color:red">Disconnected</div>`);
-            }else{
-                resolve(`<div style="color:green">Connected</div>`);
-            }*/
-
-        }catch(e){
-            log.error(e);
-            resolve(`<div style="color:blue">Unknown</div>`);
-        }
-    })
-}

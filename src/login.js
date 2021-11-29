@@ -20,6 +20,8 @@ ipcRenderer.on('oauth-reply', (event, oauthToken) => {
     }
     log.info("Access token updated: " + oauthToken.tkn);
     let tags = document.getElementById("tags").value;
+    let username = document.getElementById("adminUsername").value;
+    let password = document.getElementById('adminPassword').value;
     return ipcRenderer.send("authorized", tags);
 });
 

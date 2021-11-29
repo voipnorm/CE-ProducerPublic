@@ -25,7 +25,7 @@
   <script type="text/javascript" src="./contents/tabulator/4.9.3/dist/js/tabulator.min.js"></script>
   <link rel="stylesheet" href="./contents/tabulator/4.9.3/dist/css/tabulator.min.css" >
   <link rel="stylesheet" href="./contents/tabulator/4.9.3/dist/css/bootstrap/tabulator_bootstrap.min.css" >
-  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <!--<link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">-->
   <style>
     body {
       background-image: url(./images/ConnectWindow.jpg);
@@ -35,42 +35,9 @@
 
 <body>
 <div id="container" class="container">
-  <!--<nav class="navbar sticky-top navbar-light">
-    <a class="navbar-brand" href="#">
-      <img src="./images/logoPaw.png" width="30" height="35" class="d-inline-block align-top" alt="">
-      CE-Remote
-    </a>
-    <div>
-      <form class="form-inline">
-        <div class="col-auto" >
-          <canvas id="connectivity" class="chart" width="200" height="200"></canvas>
-        </div>
-        <div class="col-auto" id="deviceResults"></div>
-        <div class="col-auto" >
-          <canvas id="channel" class="chart" width="200" height="200"></canvas>
-        </div>
-        <div class="col-auto" >
-          <canvas id="product" class="chart" width="200" height="200"></canvas>
-        </div>
-      </form>
-    </div>
-  </nav>-->
-  <!--
-  <div class="row">
-    <div class="col" >
-      <canvas id="connectivity" class="chart" width="300" height="300"></canvas>
-    </div>
-
-    <div class="col" >
-      <canvas id="channel" class="chart" width="300" height="300"></canvas>
-    </div>
-    <div class="col" >
-      <canvas id="product" class="chart" width="300" height="300"></canvas>
-    </div>
-  </div>-->
-  <div class="row">
+  <div class="row ">
     <!--Dial interface-->
-    <div class="col">
+    <div class="col-auto">
       <div class="row m-3">
         <span>Join Conference</span>
       </div>
@@ -85,42 +52,40 @@
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="row m-3">
-        <span>Room Volume</span>
+    <div class="row">
+      <div class="col-auto">
+        <div class="row m-3">
+          <span>Set Device Volume</span>
+        </div>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div>
       </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      <div class="col-auto">
+        <div class="row m-3">
+          <span>Mute Video with Audio</span>
+        </div>
+        <div>
+          <input type="checkbox" id="muteVideoCheck">
+          <label for="muteVideoCheck" class="col-auto col-form-label">Mute Video</label>
+        </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="row m-3">
-        <span>Mute Room</span>
-      </div>
-      <div class="row m-3">
-        <div class="input-group mb-3">
+      <div class="col">
+        <div class="row m-3">
+          <span>Mute All Devices</span>
+        </div>
+        <div class="row m-3">
+          <div class="input-group mb-3">
 
-          <div>
-            <button id="muteRoom" class="btn btn-success" type="button">Mute Room</button>
+            <div>
+              <button id="muteRoom" class="btn btn-success" type="button">Mute All</button>
 
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="row m-3">
-        <span>Sync Room Systems</span>
-      </div>
-      <div class="row m-3">
-        <div class="input-group mb-3">
 
-          <div>
-            <button id="sysncsystems" class="btn btn-success" type="button">Sync Systems</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 

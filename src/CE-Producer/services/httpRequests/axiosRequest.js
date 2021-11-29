@@ -31,7 +31,7 @@ export default async (options) => {
       optWProxy.httpsAgent = agent;
       log.info(optWProxy);
       let response = await axios(optWProxy);
-      log.info(response);
+      //log.info(response);
       resolve(response)
     }catch(e){
       log.error("Request failed"+e);
