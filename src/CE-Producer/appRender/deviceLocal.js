@@ -15,16 +15,20 @@ export default class xCommandEndpoint extends EventEmitter {
 
     constructor(endpoint) {
         super();
-        this.username = endpoint.user.name;
-        this.password = endpoint.user.pwd;
-        this.url = `ssh://${endpoint.id}`;
-        this.wsurl = `ws://${endpoint.id}/ws`;
-        this.wssurl = `wss://${endpoint.id}/ws`;
+        this.id = endpoint.id;
+        this.username = endpoint.username;
+        this.password = endpoint.password;
+        this.url = `ssh://${endpoint.ip}`;
+        this.wsurl = `ws://${endpoint.ip}/ws`;
+        this.wssurl = `wss://${endpoint.ip}/ws`;
         this.endpoint = endpoint;
         this.xapi;
+        this.callId;
+        this.videoState;
+        this.audioState;
     }
     connect() {
-        mcE.info("SSH connection requested "+this.endpoint.id);
+        mcE.info("SSH connection requested "+this.endpoint.ip);
         return new Promise((resolve, reject) => {
             let url =  this.url;
             mcE.info(url);
@@ -44,13 +48,13 @@ export default class xCommandEndpoint extends EventEmitter {
                                 mcE.error(e);
                                 let errorstatus = 'danger';
                                 let errorMessage = await formatMessage(e);
-                                mcE.info(`Error Device ${this.endpoint.id}: ${errorMessage}`);
-                                let errormessage = `<strong>Error Device ${this.endpoint.id}: </strong>${errorMessage}`;
+                                mcE.info(`Error Device ${this.endpoint.ip}: ${errorMessage}`);
+                                let errormessage = `<strong>Error Device ${this.endpoint.ip}: </strong>${errorMessage}`;
 
                                 reject({status: errorstatus, message: errormessage})
                             })
                             .on('ready', async (xapi) => {
-                                mcE.info("WS Connection established "+this.endpoint.id);
+                                mcE.info("WS Connection established "+this.endpoint.ip);
                                 resolve()
                             });
                     }else{
@@ -59,7 +63,7 @@ export default class xCommandEndpoint extends EventEmitter {
                     }
                 })
                 .on('ready', async (xapi) => {
-                    mcE.info("SSH Connection established "+this.endpoint.id);
+                    mcE.info("SSH Connection established "+this.endpoint.ip);
                     resolve()
                 });
         })
@@ -113,30 +117,78 @@ export default class xCommandEndpoint extends EventEmitter {
     };
     async closeConnect() {
         await this.xapi.close();
-        return mcE.info(`connexion closed for ${this.endpoint.id || this.endpoint.url}`);
+        return mcE.info(`connexion closed for ${this.endpoint.ip || this.endpoint.url}`);
     };
-    join(){
+    join(dialString){
         return new Promise(async resolve => {
             try{
-                let command  =  "";
-                let response = await this.xCommand("Command",command);
+                let command  =  "dial";
+                let args = {Number: dialString};
+                let response = await this.xCommand("Command",command, args);
                 //this.closeConnect();
+                this.callId =  response.CallId;
+
+                command = "Audio.Microphones.Mute";
+                let response2 = await this.xCommand("Command",command);
+                log.info(response2);
+
                 resolve(response)
             }catch(e){
-                mcE.error(e)
+                mcE.error(e);
                 resolve(e)
             }
         })
     }
-    setVolume(){
+    disconnect(){
         return new Promise(async resolve => {
             try{
-                let command  =  "";
+                let command  =  "call.disconnect";
+                let args =  { CallId: this.callId };
+                let response = await this.xCommand("Command",command, args);
+                log.info(response);
+                resolve(response)
+            }catch(e){
+                mcE.error(e);
+                resolve(e)
+            }
+        })
+    }
+    muteVolume(){
+        return new Promise(async resolve => {
+            try{
+                let command  =  "Audio.Volume.Mute";
                 let response = await this.xCommand("Command",command);
+                resolve(response)
+            }catch(e){
+                mcE.error(e);
+                resolve(e)
+            }
+        })
+
+    }
+    unmuteVolume(){
+        return new Promise(async resolve => {
+            try{
+                let command  =  "Audio.Volume.Unmute";
+                let response = await this.xCommand("Command",command);
+                resolve(response)
+            }catch(e){
+                mcE.error(e);
+                resolve(e)
+            }
+        })
+
+    }
+    setVolume(volume){
+        return new Promise(async resolve => {
+            try{
+                let command  =  "Audio.Volume.Set";
+                let args = {Level: volume};
+                let response = await this.xCommand("Command",command, args);
                 //this.closeConnect();
                 resolve(response)
             }catch(e){
-                mcE.error(e)
+                mcE.error(e);
                 resolve(e)
             }
         })
@@ -149,7 +201,7 @@ export default class xCommandEndpoint extends EventEmitter {
                 //this.closeConnect();
                 resolve(response)
             }catch(e){
-                mcE.error(e)
+                mcE.error(e);
                 resolve(e)
             }
         })
@@ -157,12 +209,25 @@ export default class xCommandEndpoint extends EventEmitter {
     muteVideo(){
         return new Promise(async resolve => {
             try{
-                let command  =  "";
+                let command  =  "Video.Input.MainVideo.Mute";
                 let response = await this.xCommand("Command",command);
-                //this.closeConnect();
+                this.videoState = "muted";
                 resolve(response)
             }catch(e){
-                mcE.error(e)
+                mcE.error(e);
+                resolve(e)
+            }
+        })
+    }
+    unmuteVideo(){
+        return new Promise(async resolve => {
+            try{
+                let command  =  "Video.Input.MainVideo.Unmute";
+                let response = await this.xCommand("Command",command);
+                this.videoState = "muted";
+                resolve(response)
+            }catch(e){
+                mcE.error(e);
                 resolve(e)
             }
         })
@@ -170,7 +235,7 @@ export default class xCommandEndpoint extends EventEmitter {
     muteMicrophone(){
         return new Promise(async resolve => {
             try{
-                let command  =  "";
+                let command  =  "Audio.Microphones.Mute";
                 let response = await this.xCommand("Command",command);
                 //this.closeConnect();
                 resolve(response)
@@ -180,13 +245,63 @@ export default class xCommandEndpoint extends EventEmitter {
             }
         })
     }
-    goLive(){
+    unmuteMicrophone(){
         return new Promise(async resolve => {
             try{
-                let command  =  "";
+                let command  =  "Audio.Microphones.Unmute";
                 let response = await this.xCommand("Command",command);
                 //this.closeConnect();
                 resolve(response)
+            }catch(e){
+                mcE.error(e)
+                resolve(e)
+            }
+        })
+    }
+    goLive(options){
+        return new Promise(async resolve => {
+            try{
+                //set endpoint options based on selections in table
+                if(options.muteMic === false){
+                    await this.unmuteMicrophone();
+                    this.audioState = true;
+                }
+                if(options.muteVideo === false){
+                    await this.unmuteVideo();
+                    this.audioState = true;
+                }
+                if(options.muteVolume === false){
+                    await this.unmuteVolume()
+                }
+                if(options.setVolume === true){
+                    let volume = document.getElementById('volumeRange').value;
+                    await this.setVolume(volume)
+                }
+                resolve(log.info("Endpoint Live"))
+            }catch(e){
+                mcE.error(e)
+                resolve(e)
+            }
+        })
+    }
+    muteMe(options){
+        return new Promise(async resolve => {
+            try{
+                //'muteVolume', 'setVolume', 'muteMic', 'muteVideo'
+                //set endpoint options based on selections in table
+                let videoMute = document.getElementById('muteVideoCheck').checked;
+
+                if(options.muteMic === false || options.muteMic === true){
+                    await this.muteMicrophone();
+                    this.audioState = false;
+                }
+                if(options.muteVideo === true || videoMute === true){
+                    await this.muteVideo();
+                }
+                if(options.muteVolume === true){
+                    await this.muteVolume();
+                }
+                resolve(log.info("Endpoint Muted"))
             }catch(e){
                 mcE.error(e)
                 resolve(e)

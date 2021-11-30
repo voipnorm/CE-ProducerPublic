@@ -144,7 +144,11 @@ electron__WEBPACK_IMPORTED_MODULE_0__.ipcRenderer.on('oauth-reply', (event, oaut
   let tags = document.getElementById("tags").value;
   let username = document.getElementById("adminUsername").value;
   let password = document.getElementById('adminPassword').value;
-  return electron__WEBPACK_IMPORTED_MODULE_0__.ipcRenderer.send("authorized", tags);
+  return electron__WEBPACK_IMPORTED_MODULE_0__.ipcRenderer.send("authorized", {
+    tags: tags,
+    username: username,
+    password: password
+  });
 });
 document.querySelector("#resetSettings").addEventListener("click", async event => {
   electron_log__WEBPACK_IMPORTED_MODULE_2___default().info("Token request started......");

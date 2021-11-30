@@ -204,7 +204,7 @@ async function login() {
     }
 }
 
-function openAPP(tags) {
+function openAPP(data) {
     setApplicationMenu();
     initIpc();
     splash = new BrowserWindow({
@@ -235,7 +235,7 @@ function openAPP(tags) {
         te = tokenExpiration();
     });
     mainWindow.webContents.on('did-finish-load', function () {
-        mainWindow.webContents.send('msgToMainWindow', tags);
+        mainWindow.webContents.send('msgToMainWindow', data);
     });
     if (env.name === "development") {
         mainWindow.openDevTools();

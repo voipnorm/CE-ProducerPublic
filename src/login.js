@@ -22,7 +22,7 @@ ipcRenderer.on('oauth-reply', (event, oauthToken) => {
     let tags = document.getElementById("tags").value;
     let username = document.getElementById("adminUsername").value;
     let password = document.getElementById('adminPassword').value;
-    return ipcRenderer.send("authorized", tags);
+    return ipcRenderer.send("authorized", {tags:tags, username: username, password: password});
 });
 
 

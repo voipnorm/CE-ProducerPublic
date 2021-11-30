@@ -33,6 +33,7 @@ export default async (data, args) => {
             data:withStatus.items,
             index:"id",
             height:600, // Set height of table, this enables the Virtual DOM and improves render speed
+            width: 1100,
             layout:"fitColumns",
             //headerSort:false,                   // Disable header sorter
             resizableColumns:true,             // Disable column resize
@@ -44,13 +45,15 @@ export default async (data, args) => {
             columns:[
                 {title:"System", field:"displayName", sorter:"string",headerFilter:false},
                 {title: "Go Live", field:"connect", formatter: "html", headerSort:false},
-                {title: "Mute Volume", field:"volume", formatter: "html", headerSort:false, width:100},
+                {title: "Mute Microphone", field:"muteMic", formatter: "html", headerSort:false, width:100},
+                {title: "Mute Video", field:"muteVideo", formatter: "html", headerSort:false, width:100},
+                {title: "Mute Volume", field:"muteVolume", formatter: "html", headerSort:false, width:100},
                 {title: "Set Volume", field:"setVolume", formatter: "html", headerSort:false, width:100},
-                {title:"Status", field:"status", formatter:"traffic", formatterParams:{
+                /*{title:"Status", field:"status", formatter:"traffic", formatterParams:{
                     min:0,
                     max:10,
                     color:["green","orange","red"]
-                }},
+                }},*/
                 {title:"Status Info", field:"connectionStatus", sorter:"string", hozAlign:"right"},
                 {title: "Call Status", field:"callStatus", sorter:"string", formatter: "html"},
                 {title:"IP Address", field:"ip", formatter:customLinkformat},
@@ -137,10 +140,15 @@ function checkStatus(data, args){
                                 <button id="goLive.${endpoint.id}" value="goLive.${endpoint.id}" type="button" class="connectButton btn btn-success btn-sm">Go Live</button>
                                 <button id="muteMe.${endpoint.id}" value="muteMe.${endpoint.id}" type="button" style="display: none;" class="connectButton btn btn-danger btn-sm">Mute Me</button>
                           </div>`;
-                endpoint.volume = `<div class="form-check"><input class="volumeCheck systemName form-check-input"
-                          type="checkbox" name="volumeSelect" value="muteVolume.${endpoint.id}" id="volume.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
-                endpoint.setVolume = `<div class="form-check"><input class="setVolumeCheck systemName form-check-input"
+                endpoint.muteVolume = `<div class="form-check"><input class="mute systemName form-check-input"
+                          type="checkbox" name="volumeSelect" value="muteVolume.${endpoint.id}" id="muteVolume.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
+                endpoint.setVolume = `<div class="form-check"><input class="setVolume systemName form-check-input"
                           type="checkbox" name="setVolumeSelect" value="setVolume.${endpoint.id}" id="setVolume.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
+                endpoint.muteMic = `<div class="form-check"><input class="mute systemName form-check-input"
+                          type="checkbox" name="muteMic" value="muteMic.${endpoint.id}" id="muteMic.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
+                endpoint.muteVideo = `<div class="form-check"><input class="mute systemName form-check-input"
+                          type="checkbox" name="muteVideo" value="muteVideo.${endpoint.id}" id="muteVideo.${endpoint.id}" data-toggle="tooltip" data-placement="top"></div>`;
+
             })
             const results = await Promise.all(promises);
 

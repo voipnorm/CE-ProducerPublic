@@ -55,19 +55,19 @@
     <div class="row">
       <div class="col-auto">
         <div class="row m-3">
-          <span>Set Device Volume</span>
-        </div>
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-        </div>
-      </div>
-      <div class="col-auto">
-        <div class="row m-3">
           <span>Mute Video with Audio</span>
         </div>
         <div>
           <input type="checkbox" id="muteVideoCheck">
           <label for="muteVideoCheck" class="col-auto col-form-label">Mute Video</label>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="row m-3">
+          <span>Set Device Volume</span>
+        </div>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="volumeRange">
         </div>
       </div>
       <div class="col">
@@ -78,7 +78,7 @@
           <div class="input-group mb-3">
 
             <div>
-              <button id="muteRoom" class="btn btn-success" type="button">Mute All</button>
+              <button id="muteAll" class="btn btn-success" type="button">Mute All</button>
 
             </div>
           </div>
