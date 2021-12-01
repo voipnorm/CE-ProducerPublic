@@ -4,82 +4,58 @@
   <meta charset="utf-8">
   <title>CE-Producer</title>
   <base href="./">
-  <link rel="stylesheet" href="./contents/momentum-ui/css/momentum-ui.min.css">
-  <link rel="stylesheet" href="./contents/momentum-ui/icons/css/momentum-ui-icons.min.css">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./contents/bootstrap/4.3.1/css/bootstrap.min.css" />
 
-<style>
-  body {
-    background-image: url(./images/SupportBackground.jpg);
-  }
-  div {
+    <!-- Optional JavaScript -->
+    <script>if (typeof module === 'object') {
+        window.module = module;
+        module = undefined;
+    }</script>
+    <script type="text/javascript" src="./contents/jquery/3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="./contents/popperjs/dist/umd/popper.min.js"></script>
+    <script src="./contents/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
 
-    align-items: center;
-    height: 200px
-  }
-  #welcome {
-    font-family: "CiscoSansTT Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: xx-large;
-  }
+    <style>
+    body {
+        background-image: url(./images/StudioWhite2.png);
+    }
+    #welcome {
+        font-family: "CiscoSansTT Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: xx-large;
+
+    }
+    .container {
+        height: 600px;
+        width: 1400px;
+        position: relative;
+
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
 
 </style>
 </head>
 
 <body>
 <div id="container" class="container">
-  <div class="row" style="height: 100px">
-    <div class="col text-center">
-
-      <span id="welcome" class="align-text-bottom">Welcome to CE-Producer!</span>
+    <div class="center">
+        <div class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col text-center" >
-
-
-      <div class="md-button__container--small">
-        <button
-                class="md-button md-button--circle md-button--68 md-activity md-activity__camera"
-                alt="camera" type="button" aria-label="camera">
-                    <span class="md-button__children">
-                        <i class="icon icon-camera_28"></i>
-                    </span>
-        </button>
-        <div class="md-button__label">Camera</div>
-      </div>
-      <div class="md-button__container--small">
-        <button
-                class="md-button md-button--circle md-button--68 md-activity md-activity__meetings"
-                alt="meetings" type="button" aria-label="meetings">
-                    <span class="md-button__children">
-                        <i class="icon icon-meetings_28"></i>
-                    </span>
-        </button>
-        <div class="md-button__label">Meetings</div>
-      </div>
-
-
-      <div class="md-button__container--small">
-        <button
-                class="md-button md-button--circle md-button--68 md-activity md-activity__share-screen"
-                alt="share-screen" type="button" aria-label="share-screen">
-                    <span class="md-button__children">
-                        <i class="icon icon-share-screen_28"></i>
-                    </span>
-        </button>
-        <div class="md-button__label">Share</div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col text-center">
-      <i class="md-spinner md-spinner--36 md-spinner--blue"></i>
-    </div>
-  </div>
-
 </div>
-
 
   <script src="splash.js"></script>
 

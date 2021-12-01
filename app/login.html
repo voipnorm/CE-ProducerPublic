@@ -2,13 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>CE-Remote</title>
+    <title>CE-Producer</title>
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./contents/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./contents/momentum-ui/css/momentum-ui.min.css">
-    <link rel="stylesheet" href="./contents/momentum-ui/icons/css/momentum-ui-icons.min.css">
+
     <!-- Optional JavaScript -->
     <script>if (typeof module === 'object') {
         window.module = module;
@@ -20,16 +19,27 @@
     <script>if (window.module) module = window.module;</script>
     <style>
         body {
-            background-image: url(./images/SupportBackground.jpg);
-        }
-        div {
-
-            align-items: center;
-            height: 200px
+            background-image: url(./images/StudioWhite2.png);
         }
         #welcome {
             font-family: "CiscoSansTT Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: xx-large;
+
+        }
+        .container {
+            height: 600px;
+            width: 1400px;
+            position: relative;
+
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
 
     </style>
@@ -37,43 +47,45 @@
 
 <body>
 <div id="container" class="container">
-    <div class="row">
-        <div class="col text-center" style="height:100px">
-            <span id="welcome" class="align-text-bottom">Welcome to CE-Producer!</span>
-        </div>
-    </div>
-    <div class="row m-3">
-        <div class="md-input-group col text-center">
-            <label class="md-label" for="tags">Enter Your Webex Device Tags</label>
-            <input class="md-input" id="tags" type="text" placeholder="">
-        </div>
+
+        <div class="center bg-light rounded text-center">
+            <div class="row ">
+                <div class="col m-3 p-2">
+                    <span id="welcome">CE-Producer</span>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col">
+                    <label class="label" for="tags">Webex Device Tags</label>
+                    <input class="form-control" id="tags" type="text" placeholder="">
+                </div>
+                <div class="col">
+                    <label class="label" for="adminUsername">Device Username</label>
+                    <input class="form-control" id="adminUsername" type="text" placeholder="">
+                </div>
+                <div class="col">
+                    <label class="label" for="adminPassword">Device Password</label>
+                    <input class="form-control" id="adminPassword" type="password" placeholder="">
+                </div>
 
 
-        <div class="md-input-group col text-center">
-            <label class="md-label" for="adminUsername">Local Admin User</label>
-            <input class="md-input" id="adminUsername" type="text" placeholder="">
-        </div>
-        <div class="md-input-group col text-center">
-            <label class="md-label" for="adminPassword">Local Admin User Password</label>
-            <input class="md-input" id="adminPassword" type="text" placeholder="">
+            </div>
+            <div class="row m-3">
+                <div class="col">
+                    <form>
+                        <input type="submit" value="Sign in using Webex" class="btn btn-primary" id="login">
+                    </form>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col">
+                    <form>
+                        <input type="submit" value="Reset Integration" class="btn btn-primary" id="resetSettings">
+                    </form>
+                </div>
+            </div>
         </div>
 
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            <form>
-                <input type="submit" value="Sign in using Webex" class="md-button md-button--blue" id="login">
-            </form>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col text-center m-6">
-            <form>
-                <input type="submit" value="Reset Integration" class="md-button md-button--blue" id="resetSettings">
-            </form>
-        </div>
-    </div>
 
 </div>
 

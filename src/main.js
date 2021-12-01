@@ -160,7 +160,7 @@ async function login() {
         //check
 
         loginWindow = new BrowserWindow({
-            width: 1000,
+            width: 1400,
             height: 800,
             center: true,
             webPreferences: {
@@ -208,7 +208,7 @@ function openAPP(data) {
     setApplicationMenu();
     initIpc();
     splash = new BrowserWindow({
-        width: 1000,
+        width: 1400,
         height: 800,
         center: true,
         webPreferences: {
@@ -389,7 +389,7 @@ async function intialSetup(args) {
         //check
 
         setupWindow = new BrowserWindow({
-            width: 1000,
+            width: 1400,
             height: 800,
             center: true,
             webPreferences: {
