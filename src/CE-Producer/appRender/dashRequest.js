@@ -1,5 +1,5 @@
 import log from 'electron-log';
-import {getStatusText, getStatusCode} from '../helpers/processStatusCodes';
+import {getStatusText} from '../helpers/processStatusCodes';
 
 import CustomData from '../services/customUserData/remoteCustomUserData';
 import request from "../services/httpRequests/axiosRequest";
@@ -16,6 +16,7 @@ var onlineDevices = null;
 export default async (data) => {
     return new Promise(async (resolve, reject) => {
         try {
+            dashRLog.info("Loading dashRequest")
             const baseUrl = "https://webexapis.com/v1/";
             let url;
 
@@ -23,7 +24,7 @@ export default async (data) => {
             let settings = await userData.getCustomData();
 
             proxy = settings.webProxy;
-            log.info(data.option)
+            log.info(data.option);
             if (data.option === "org") {
                 url = "devices?orgId=" + data.value + "&max=1000";
             }
@@ -57,7 +58,7 @@ export default async (data) => {
             }
         } catch (e) {
             dashRLog.error(await getStatusText(e.statusCode));
-
+            dashRLog.error(e);
             reject({Error: await getStatusText(e.statusCode)});
         }
     })
@@ -90,7 +91,10 @@ async function sendRequest(req) {
                     dashRLog.info("More data coming in next request");
                     let rd = response.data.items;
                     rd.map(item => {
-                        requestData.push(item);
+                        if(item.product != "Cisco Webex Share"){
+                            log.info("Timing test")
+                            requestData.push(item);
+                        }
                         if (item.connectionStatus === "disconnected") {
                             offlineDevices.push(item)
                         } else {
@@ -104,7 +108,10 @@ async function sendRequest(req) {
                 //finish off reading data into array
                 let rd = response.data.items;
                 rd.map(item => {
-                    requestData.push(item);
+                    if(item.product != "Cisco Webex Share"){
+                        log.info("Timing test")
+                        requestData.push(item);
+                    }
                     if (item.connectionStatus === "disconnected") {
                         offlineDevices.push(item)
                     } else {
@@ -137,7 +144,7 @@ async function parseLink(data) {
         dashRLog.info(parsed_data);
         return parsed_data;
     } catch (e) {
-        dashRLog.error(e);
+        dashRLog.error("ParseLink error: "+e);
         return e;
     }
 }

@@ -7,12 +7,11 @@ Build main table
 import "./helpers/external_links.js";
 import log from "electron-log";
 import dash from './CE-Producer/appRender/dash'
-import {ipcRenderer} from 'electron';
 import dashRequest from "./CE-Producer/appRender/dashRequest";
 import dashError from "./CE-Producer/appRender/dashError";
 import updates from "./CE-Producer/updates/updates";
 import xCommandEndpoint from "./CE-Producer/appRender/deviceLocal";
-
+const { ipcRenderer } = require('electron');
 const dashMLog = log.scope("DashboardMain");
 var CronJob = require('cron').CronJob;
 

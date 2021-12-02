@@ -2,11 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/StudioWhite2.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/deviceRequests.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/login.html" afterPath="$PROJECT_DIR$/app/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/splash.html" afterPath="$PROJECT_DIR$/app/splash.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.html" afterPath="$PROJECT_DIR$/app/app.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/splash.js" afterPath="$PROJECT_DIR$/app/splash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/dashError.js" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/dashError.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/dashRequest.js" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/dashRequest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js" afterPath="$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/services/customUserData/remoteCustomUserData.js" afterPath="$PROJECT_DIR$/src/CE-Producer/services/customUserData/remoteCustomUserData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js" afterPath="$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js" afterPath="$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.js" afterPath="$PROJECT_DIR$/src/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/splash.js" afterPath="$PROJECT_DIR$/src/splash.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,36 +37,34 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="246">
+              <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dash.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dash.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="143" column="105" lean-forward="false" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
+            <state relative-caret-position="-348">
+              <caret line="56" column="79" lean-forward="false" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
               <folding>
                 <element signature="e#39#70#0" expanded="true" />
-                <marker date="1638309395488" expanded="true" signature="5438:5839" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="5731:5745" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="5905:6129" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="5953:6123" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6194:6424" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6247:6418" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6487:6700" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6535:6694" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6765:6984" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="6813:6978" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="7913:7923" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="8109:8118" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="8198:8209" ph="..." />
-                <marker date="1638309395488" expanded="true" signature="8323:8333" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="5420:5821" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="5713:5727" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="5887:6111" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="5935:6105" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6176:6406" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6229:6400" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6469:6682" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6517:6676" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6747:6966" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="6795:6960" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="7895:7905" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="8091:8100" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="8180:8191" ph="..." />
+                <marker date="1638483952274" expanded="true" signature="8305:8315" ph="..." />
               </folding>
             </state>
           </provider>
@@ -62,21 +73,20 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state relative-caret-position="369">
+              <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#61#98#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="splash.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/splash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+            <state relative-caret-position="180">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -85,8 +95,8 @@
       <file leaf-file-name="deviceLocal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4395">
-              <caret line="293" column="51" lean-forward="false" selection-start-line="293" selection-start-column="51" selection-end-line="293" selection-end-column="51" />
+            <state relative-caret-position="480">
+              <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
                 <element signature="e#110#141#0" expanded="true" />
               </folding>
@@ -94,18 +104,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="isJSON.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CE-Producer/helpers/isJSON.js">
+      <file leaf-file-name="deviceStatus.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceStatus.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -114,12 +114,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/login.js">
+      <file leaf-file-name="customUserData.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="axiosRequest.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="50" />
+              <folding>
+                <element signature="e#51#77#0" expanded="true" />
+                <element signature="e#184#215#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,22 +142,24 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="320" column="17" lean-forward="true" selection-start-line="320" selection-start-column="17" selection-end-line="320" selection-end-column="17" />
+            <state relative-caret-position="214">
+              <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
               <folding>
-                <element signature="n#!!block;n#openConnectWindow#0" expanded="false" />
+                <element signature="e#232#256#0" expanded="true" />
+                <element signature="e#1831#1946#0" expanded="false" />
+                <element signature="e#1981#2179#0" expanded="false" />
+                <element signature="e#2337#2606#0" expanded="false" />
                 <element signature="n#!!block;n#resetSettings#0" expanded="false" />
-                <element signature="e#14121#15100#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="splash.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/splash.html">
+      <file leaf-file-name="credStore.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+            <state relative-caret-position="1215">
+              <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -159,6 +176,9 @@
       <find>tags</find>
       <find>id</find>
       <find>openapp</find>
+      <find>complete</find>
+      <find>tokenrequest</find>
+      <find>getStatusCode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,22 +189,28 @@
       <list>
         <option value="$PROJECT_DIR$/config/env_development.json" />
         <option value="$PROJECT_DIR$/config/env_production.json" />
-        <option value="$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js" />
         <option value="$PROJECT_DIR$/build/webpack.app.config.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceStatus.js" />
         <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceClass.js" />
-        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js" />
-        <option value="$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js" />
         <option value="$PROJECT_DIR$/src/login.js" />
-        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" />
-        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js" />
-        <option value="$PROJECT_DIR$/app/app.html" />
-        <option value="$PROJECT_DIR$/src/app.js" />
-        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/app/login.html" />
         <option value="$PROJECT_DIR$/app/splash.html" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceRequests.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/dashRequest.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/services/customUserData/remoteCustomUserData.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/dashError.js" />
+        <option value="$PROJECT_DIR$/src/app.js" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js" />
+        <option value="$PROJECT_DIR$/src/splash.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/app/app.html" />
+        <option value="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" />
       </list>
     </option>
   </component>
@@ -204,7 +230,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
+    <option name="x" value="44" />
     <option name="y" value="64" />
     <option name="width" value="1743" />
     <option name="height" value="997" />
@@ -333,7 +359,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="oauth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="httpRequests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customUserData" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,6 +498,126 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.9.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.9.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.9.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CE-Producer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -556,7 +754,7 @@
       <workItem from="1636570967817" duration="15205000" />
       <workItem from="1636748676929" duration="428000" />
       <workItem from="1636749148256" duration="6135000" />
-      <workItem from="1638200227840" duration="36859000" />
+      <workItem from="1638200227840" duration="49068000" />
     </task>
     <task id="LOCAL-00001" summary="UI framework">
       <created>1636743281380</created>
@@ -579,11 +777,18 @@
       <option name="project" value="LOCAL" />
       <updated>1638314314320</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="login splash phase 2">
+      <created>1638320385802</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638320385805</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58627000" />
+    <option name="totallyTimeSpent" value="70836000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,15 +800,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="64" width="1743" height="997" extended-state="0" />
+    <frame x="44" y="64" width="1743" height="997" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24970964" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.49535424" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.5801394" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.4157956" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.49535424" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.4651568" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.41986063" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.58420444" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39933258" sideWeight="0.49767712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -625,7 +830,8 @@
     <MESSAGE value="UI framework" />
     <MESSAGE value="UI phase 1" />
     <MESSAGE value="wiring phase 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="wiring phase 2" />
+    <MESSAGE value="login splash phase 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="login splash phase 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,26 +840,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3495">
-          <caret line="236" column="62" lean-forward="false" selection-start-line="236" selection-start-column="62" selection-end-line="236" selection-end-column="62" />
-          <folding>
-            <element signature="e#232#256#0" expanded="false" />
-            <element signature="n#!!block;n#openConnectWindow#0" expanded="false" />
-            <element signature="n#!!block;n#resetSettings#0" expanded="false" />
-            <element signature="e#14121#15100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceRequests.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -671,20 +862,20 @@
           <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
           <folding>
             <element signature="e#39#70#0" expanded="true" />
-            <marker date="1638309395488" expanded="true" signature="5438:5839" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5731:5745" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5905:6129" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5953:6123" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6194:6424" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6247:6418" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6487:6700" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6535:6694" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6765:6984" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6813:6978" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="7913:7923" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8109:8118" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8198:8209" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8323:8333" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5420:5821" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5713:5727" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5887:6111" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5935:6105" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6176:6406" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6229:6400" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6469:6682" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6517:6676" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6747:6966" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6795:6960" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="7895:7905" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8091:8100" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8180:8191" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8305:8315" ph="..." />
           </folding>
         </state>
       </provider>
@@ -738,10 +929,10 @@
         <state relative-caret-position="3495">
           <caret line="236" column="62" lean-forward="false" selection-start-line="236" selection-start-column="62" selection-end-line="236" selection-end-column="62" />
           <folding>
-            <element signature="e#232#256#0" expanded="false" />
+            <element signature="e#232#256#0" expanded="true" />
             <element signature="n#!!block;n#openConnectWindow#0" expanded="false" />
             <element signature="n#!!block;n#resetSettings#0" expanded="false" />
-            <element signature="e#14121#15100#0" expanded="false" />
+            <element signature="e#14188#15353#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -750,9 +941,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -820,39 +1009,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/oauth/oauth2provider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#71#102#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/customUserData/remoteCustomUserData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -892,13 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dashError.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -906,13 +1061,6 @@
             <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/splash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -927,57 +1075,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceClass.js" />
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4455">
-          <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
-          <folding>
-            <element signature="e#109#140#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/connectWin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dashRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2020">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceStatus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceRequests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1007,81 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="143" column="105" lean-forward="false" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
-          <folding>
-            <element signature="e#39#70#0" expanded="true" />
-            <marker date="1638309395488" expanded="true" signature="5438:5839" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5731:5745" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5905:6129" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="5953:6123" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6194:6424" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6247:6418" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6487:6700" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6535:6694" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6765:6984" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="6813:6978" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="7913:7923" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8109:8118" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8198:8209" ph="..." />
-            <marker date="1638309395488" expanded="true" signature="8323:8333" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4395">
-          <caret line="293" column="51" lean-forward="false" selection-start-line="293" selection-start-column="51" selection-end-line="293" selection-end-column="51" />
-          <folding>
-            <element signature="e#110#141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#61#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="320" column="17" lean-forward="true" selection-start-line="320" selection-start-column="17" selection-end-line="320" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#openConnectWindow#0" expanded="false" />
-            <element signature="n#!!block;n#resetSettings#0" expanded="false" />
-            <element signature="e#14121#15100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1093,8 +1120,181 @@
     <entry file="file://$PROJECT_DIR$/app/splash.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceRequests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="73" column="38" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="76" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/helpers/processStatusCodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dashError.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dashRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceCloud.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#109#140#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/customUserData/remoteCustomUserData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#22#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/customUserData/customUserData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/httpRequests/axiosRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="50" />
+          <folding>
+            <element signature="e#51#77#0" expanded="true" />
+            <element signature="e#184#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/services/oauth/credStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceStatus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/deviceLocal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="e#110#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/splash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="e#61#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding>
+            <element signature="e#232#256#0" expanded="true" />
+            <element signature="e#1831#1946#0" expanded="false" />
+            <element signature="e#1981#2179#0" expanded="false" />
+            <element signature="e#2337#2606#0" expanded="false" />
+            <element signature="n#!!block;n#resetSettings#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CE-Producer/appRender/dash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-348">
+          <caret line="56" column="79" lean-forward="false" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
+          <folding>
+            <element signature="e#39#70#0" expanded="true" />
+            <marker date="1638483952274" expanded="true" signature="5420:5821" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5713:5727" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5887:6111" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="5935:6105" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6176:6406" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6229:6400" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6469:6682" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6517:6676" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6747:6966" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="6795:6960" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="7895:7905" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8091:8100" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8180:8191" ph="..." />
+            <marker date="1638483952274" expanded="true" signature="8305:8315" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

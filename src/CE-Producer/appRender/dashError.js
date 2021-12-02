@@ -1,6 +1,6 @@
 
 import log from "electron-log";
-const {dialog} = require('electron').remote;
+const {dialog} = require('@electron/remote');
 
 const dashELog = log.scope("DashError");
 

@@ -1,4 +1,6 @@
 // services/credStore.js
+import log from 'electron-log';
+
 const keytar = require("keytar");
 const os = require("os");
 
@@ -12,49 +14,81 @@ let profile = null;
 let refreshToken = null;
 
 async function getAccessToken() {
-    let token = await keytar.getPassword(keytarService, keytarAccount);
-    let t = JSON.parse(token);
-    let accessToken = t.access;
-    return accessToken;
+    try{
+        let token = await keytar.getPassword(keytarService, keytarAccount);
+        let t = JSON.parse(token);
+        let accessToken = t.access;
+        return accessToken;
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function getRefreshToken() {
-    let token = await keytar.getPassword(keytarService, keytarAccount);
-    let t = JSON.parse(token);
-    let accessToken = t.refresh;
-    return accessToken;
+    try{
+        let token = await keytar.getPassword(keytarService, keytarAccount);
+        let t = JSON.parse(token);
+        let accessToken = t.refresh;
+        return accessToken;
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function setAccessToken(token){
-    await keytar.deletePassword(keytarService, keytarAccount);
-    return await keytar.setPassword(keytarService, keytarAccount, JSON.stringify(token));
+    try{
+        await keytar.deletePassword(keytarService, keytarAccount);
+        return await keytar.setPassword(keytarService, keytarAccount, JSON.stringify(token));
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function logout() {
-    await keytar.deletePassword(keytarService, keytarAccount);
-    accessToken = null;
-    profile = null;
-    refreshToken = null;
+    try{
+        await keytar.deletePassword(keytarService, keytarAccount);
+        accessToken = null;
+        profile = null;
+        refreshToken = null;
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function getGuestToken() {
-    let token = await keytar.getPassword(keytarGuestService, keytarAccount);
-    return token;
+    try{
+        let token = await keytar.getPassword(keytarGuestService, keytarAccount);
+        return token;
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function setGuestToken(token){
-    await keytar.deletePassword(keytarGuestService, keytarAccount);
-    return await keytar.setPassword(keytarGuestService, keytarAccount, token);
+    try{
+        await keytar.deletePassword(keytarGuestService, keytarAccount);
+        return await keytar.setPassword(keytarGuestService, keytarAccount, token);
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function getIntegrationToken() {
-    let token = await keytar.getPassword(keytarIntegrationService, keytarAccount);
-    return token;
+    try{
+        let token = await keytar.getPassword(keytarIntegrationService, keytarAccount);
+        return token;
+    }catch(e){
+        log.error(e)
+    }
 }
 
 async function setIntegrationToken(token){
-    await keytar.deletePassword(keytarIntegrationService, keytarAccount);
-    return await keytar.setPassword(keytarIntegrationService, keytarAccount, token);
+    try{
+        await keytar.deletePassword(keytarIntegrationService, keytarAccount);
+        return await keytar.setPassword(keytarIntegrationService, keytarAccount, token);
+    }catch(e){
+        log.error(e)
+    }
 }
 
 export  {

@@ -1,9 +1,8 @@
-import {ipcRenderer} from 'electron';
+const { ipcRenderer } = require('electron');
 
 function update() {
-  var element = document.getElementById("splash-progress-bar");
   var width = 1;
-  var identity = setInterval(scene, 50);
+  var identity = setInterval(scene, 100);
 
   function scene() {
     if (width >= 100) {
@@ -11,7 +10,6 @@ function update() {
       clearInterval(identity);
     } else {
       width++;
-      element.style.width = width + '%';
     }
   }
 }

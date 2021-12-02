@@ -6,7 +6,7 @@ const EventEmitter = require('events');
 import log from 'electron-log';
 import formatMessage from "../helpers/jsonBeautify";
 
-const mcE = log.scope("macroEndpoint");
+const mcE = log.scope("localEndpoint");
 const jsxapi = require('jsxapi');
 
 //using local to avoid issues with personal devices and reduce perminute request issues with cloud

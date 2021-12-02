@@ -33,9 +33,24 @@ export default async (options) => {
       let response = await axios(optWProxy);
       //log.info(response);
       resolve(response)
-    }catch(e){
-      log.error("Request failed"+e);
-      reject(e)
+    }catch (error) {
+        if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            log.info(error.response.data);
+            log.info(error.response.status);
+            log.info(error.response.headers);
+        } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            log.info(error.request);
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            log.info('Error', error.message);
+        }
+        log.info(error.config);
+        reject(error)
     }
   })
 }

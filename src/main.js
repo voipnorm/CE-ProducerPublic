@@ -27,8 +27,10 @@ import customUserData from "./CE-Producer/services/customUserData/customUserData
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from "env";
-
+const remoteMain = require("@electron/remote/main");
 const {autoUpdater} = require('electron-updater');
+
+remoteMain.initialize();
 autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info";
 
@@ -77,11 +79,11 @@ app.on("ready", async () => {
         height: 900,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true,
             contextIsolation: false,
         },
         show: false
     });
+    remoteMain.enable(mainWindow.webContents);
     //perform checks to make sure we are ready to go before letting someone login
     //checks to perform: is there a valid guest issuer ID stored
     //checks to perform: have they accepted the default integration
@@ -170,14 +172,14 @@ async function login() {
                 nodeIntegration: true,
                 contextIsolation: false,
                 // Spectron needs access to Producer module
-                enableRemoteModule: env.name === "test"
+
             },
             frame: false,
             skipTaskbar: true,
             resizable: false,
             show: false
         });
-
+        remoteMain.enable(loginWindow.webContents);
         loginWindow.loadURL(
             url.format({
                 pathname: path.join(__dirname, "login.html"),
@@ -214,7 +216,6 @@ function openAPP(data) {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            enableRemoteModule: false,
         },
         frame: false,
         skipTaskbar: true,
@@ -336,10 +337,10 @@ function openConnectWindow(args) {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            enableRemoteModule: true,
         },
         resizable: true,
     });
+    remoteMain.enable(connectWindow.webContents);
     connectWindow.webContents.once("did-finish-load", () => {
         connectWindow.webContents.send('msgToConnectWindow', args);
     })
@@ -364,7 +365,7 @@ function openConnectWindow(args) {
 async function checkInitialSetup(args) {
     const cud = new customUserData();
     let state = await cud.getCustomData();
-    log.info(state)
+    log.info(state);
     /*
     if (state.guestID === '') {
         log.info("No Guest ID setup doing intial setup");
@@ -399,13 +400,12 @@ async function intialSetup(args) {
                 nodeIntegration: true,
                 contextIsolation: false,
                 // Spectron needs access to Producer module
-                enableRemoteModule: true
             },
             frame: false,
             skipTaskbar: true,
             resizable: false,
         });
-
+        remoteMain.enable(setupWindow.webContents);
         setupWindow.loadURL(
             url.format({
                 pathname: path.join(__dirname, "setGuest.html"),
@@ -438,45 +438,50 @@ async function resetSettings(args) {
 }
 //access tokens from key store with out constant prompting
 ipcMain.on("TokenRequest", async (event, args) => {
+    try{
+        let type = args.type;
 
-    let type = args.type;
+        let token = args.token;
 
-    let token = args.token;
+        let tokenRequest= {
+            async guestSet (token){
+                await setGuestToken(token);
+                return null
+            },
+            async guestGet (){
+                let gt = await getGuestToken();
+                return gt
+            },
+            async integrationSet (token){
+                await setIntegrationToken(token);
+                return null
+            },
+            async integrationGet(){
+                let it = await getIntegrationToken();
+                return it
+            },
+            async accessSet (token){
+                await setAccessToken(token);
+                return null
+            },
+            async accessGet (){
+                log.info("Pulling token from keystore")
+                let at = await getAccessToken();
 
-    let tokenRequest= {
-        async guestSet (token){
-            await setGuestToken(token);
-            return null
-        },
-        async guestGet (){
-            let gt = await getGuestToken();
-            return gt
-        },
-        async integrationSet (token){
-            await setIntegrationToken(token);
-            return null
-        },
-        async integrationGet(){
-            let it = await getIntegrationToken();
-            return it
-        },
-        async accessSet (token){
-            await setAccessToken(token);
-            return null
-        },
-        async accessGet (){
-            log.info("Pulling token from keystore")
-            let at = await getAccessToken();
-
-            return at
+                return at
+            }
         }
+
+        let tkn = await tokenRequest[type](token);
+        log.info(tkn);
+        if(tkn !=  null){
+            return event.sender.send("TokenRequest-reply", {type: type,token: tkn})
+        }
+    }catch(e){
+        log.error(e)
     }
 
-    let tkn = await tokenRequest[type](token);
-    //log.info(tkn);
-    if(tkn !=  null){
-        return event.sender.send("TokenRequest-reply", {type: type,token: tkn})
-    }
+
 })
 
 //auto update configuration

@@ -54,7 +54,7 @@ export default async (data, args) => {
                     max:10,
                     color:["green","orange","red"]
                 }},*/
-                {title:"Status Info", field:"connectionStatus", sorter:"string", hozAlign:"right"},
+                {title:"Status Info", field:"connectionStatus", sorter:"string"},
                 {title: "Call Status", field:"callStatus", sorter:"string", formatter: "html"},
                 {title:"IP Address", field:"ip", formatter:customLinkformat},
                 {title:"Tags", field:"tags",headerFilter:false},

@@ -8,7 +8,7 @@ import CustomData from '../services/customUserData/remoteCustomUserData';
 
 const HttpsProxyAgent = require('https-proxy-agent');
 
-const mchE = log.scope("macrohttpEndpoint");
+const mchE = log.scope("httpEndpoint");
 
 axios.defaults.adapter = require('axios/lib/adapters/http');
 

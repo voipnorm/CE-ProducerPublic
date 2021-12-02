@@ -2,7 +2,7 @@ import env from 'env';
 import jetpack from "fs-jetpack";
 import log from"electron-log";
 
-const {app} = require('electron').remote;
+const app = require('@electron/remote').app;
 
 export default class CustomData {
 
