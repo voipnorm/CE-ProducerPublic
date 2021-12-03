@@ -29,10 +29,7 @@
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
       "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
-      "extendInfo": {
-        "NSMicrophoneUsageDescription": "This app requires microphone access."
-      }
+      "entitlementsInherit": "build/entitlements.mac.plist"
     }
   },
   "scripts": {

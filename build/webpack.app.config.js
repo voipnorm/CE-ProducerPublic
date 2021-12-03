@@ -8,7 +8,8 @@ module.exports = env => {
         main: "./src/main.js",
         app: "./src/app.js",
         splash: "./src/splash.js",
-        login: "./src/login.js"
+        login: "./src/login.js",
+        setGuest: "./src/setGuest.js"
     },
     output: {
       filename: "[name].js",

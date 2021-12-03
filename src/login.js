@@ -2,8 +2,11 @@
 import { ipcRenderer } from "electron";
 import jetpack from "fs-jetpack";
 import log from "electron-log";
+import welcome from './CE-Producer/welcome/welcomeModal';
 
 import env from "env";
+
+welcome();
 
 document.querySelector("#login").addEventListener("click", async (event) => {
     log.info("Token request started......");

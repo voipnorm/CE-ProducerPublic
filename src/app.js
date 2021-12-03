@@ -11,6 +11,8 @@ import dashRequest from "./CE-Producer/appRender/dashRequest";
 import dashError from "./CE-Producer/appRender/dashError";
 import updates from "./CE-Producer/updates/updates";
 import xCommandEndpoint from "./CE-Producer/appRender/deviceLocal";
+
+
 const { ipcRenderer } = require('electron');
 const dashMLog = log.scope("DashboardMain");
 var CronJob = require('cron').CronJob;
@@ -18,6 +20,7 @@ var CronJob = require('cron').CronJob;
 let counter = 0;
 
 updates();
+
 let token;
 let deployment = {};
 let endpoints;
