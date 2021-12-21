@@ -5,7 +5,6 @@
 
 import path from "path";
 import url from "url";
-import {app, Menu, ipcMain, shell, dialog, BrowserWindow} from "electron";
 import appMenuTemplate from "./menu/app_menu_template";
 import editMenuTemplate from "./menu/edit_menu_template";
 import devMenuTemplate from "./menu/dev_menu_template";
@@ -27,6 +26,8 @@ import customUserData from "./CE-Producer/services/customUserData/customUserData
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from "env";
+
+const {app, Menu, ipcMain, shell, dialog, BrowserWindow} = require("electron");
 const remoteMain = require("@electron/remote/main");
 const {autoUpdater} = require('electron-updater');
 

@@ -1,5 +1,9 @@
-import {ipcRenderer} from 'electron';
+
 import modal from './updateModal';
+
+const {ipcRenderer} = require('electron');
+
+
 
 //$("#myModal").modal()
 

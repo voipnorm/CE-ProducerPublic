@@ -1,8 +1,4 @@
 import log from "electron-log"
-import { remote } from "electron";
-
-
-
 
 export default async (message) => {
 

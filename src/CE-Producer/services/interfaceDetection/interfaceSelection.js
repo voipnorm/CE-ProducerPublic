@@ -1,6 +1,6 @@
 import log from 'electron-log';
 import interfaces from "./interfaces";
-const {dialog} = require('electron').remote;
+const {dialog} = require('@electron/remote');
 
 async function ipAddressDropdown (){
   return new Promise(async (resolve, reject)=>{

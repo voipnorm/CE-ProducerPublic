@@ -1,10 +1,9 @@
 
-import { ipcRenderer } from "electron";
-import jetpack from "fs-jetpack";
+
+
 import log from "electron-log";
 import welcome from './CE-Producer/welcome/welcomeModal';
-
-import env from "env";
+const {ipcRenderer} = require("electron");
 
 welcome();
 

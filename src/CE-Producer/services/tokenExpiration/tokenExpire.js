@@ -6,7 +6,7 @@ import OauthProvider from "../oauth/oauth2provider";
 
 let {authorize_url, access_token_url, response_type, client_secret, client_id, redirect_uri, stateScope, scope} = env;
 
-const {dialog} = require('electron');
+const {dialog} = require('@electron/remote');
 
 
 const ScheduleTime = '6:00';// Set this to the time you want to have the device do something
