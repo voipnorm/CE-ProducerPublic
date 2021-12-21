@@ -8,7 +8,7 @@ import url from "url";
 import appMenuTemplate from "./menu/app_menu_template";
 import editMenuTemplate from "./menu/edit_menu_template";
 import devMenuTemplate from "./menu/dev_menu_template";
-import createWindow from "./helpers/window";
+//import createWindow from "./helpers/window";
 import keytar from 'keytar';
 import log from "electron-log";
 import jetpack from "fs-jetpack";
@@ -27,11 +27,12 @@ import customUserData from "./CE-Producer/services/customUserData/customUserData
 // in config/env_xxx.json file.
 import env from "env";
 
-const {app, Menu, ipcMain, shell, dialog, BrowserWindow} = require("electron");
+const { app, Menu, ipcMain, shell, dialog, BrowserWindow} = require("electron");
 const remoteMain = require("@electron/remote/main");
+remoteMain.initialize();
+
 const {autoUpdater} = require('electron-updater');
 
-remoteMain.initialize();
 autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info";
 

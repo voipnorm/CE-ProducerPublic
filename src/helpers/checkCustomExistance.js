@@ -1,7 +1,8 @@
 import log from 'electron-log';
 import env from 'env';
 import jetpack from 'fs-jetpack';
-import {app} from 'electron';
+
+const {app} = require('electron');
 
 const ccustlog = log.scope("CheckCustomAttributes");
 

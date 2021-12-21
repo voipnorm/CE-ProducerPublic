@@ -1,4 +1,3 @@
-import log from "electron-log"
 
 export default async () => {
   return new Promise(resolve => {

@@ -2,6 +2,7 @@ import log from 'electron-log';
 
 import CustomData from '../customUserData/remoteCustomUserData';
 
+const remote = require("@electron/remote");
 
 export  default async (data) => {
   //setInterval(function(){ alert("Hello"); }, 3000);
@@ -9,7 +10,7 @@ export  default async (data) => {
   let session;
 
   if (!data) {
-    session = require('electron').remote.getCurrentWindow().webContents.session;
+    session = remote.getCurrentWindow().webContents.session;
   } else {
     session = data;
   }

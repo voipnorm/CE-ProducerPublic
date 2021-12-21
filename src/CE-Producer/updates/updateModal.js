@@ -1,5 +1,3 @@
-import log from "electron-log"
-
 export default async (message) => {
 
   let updatemodal = `<div class="modal-dialog" style="display:table;text-align:center">

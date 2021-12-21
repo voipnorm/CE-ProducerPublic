@@ -1,4 +1,4 @@
-import { app } from "electron";
+const app = require('@electron/remote').app;
 
 export default {
   label: "App",

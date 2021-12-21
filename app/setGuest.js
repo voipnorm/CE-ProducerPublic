@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/CE-Producer/services/customUserData/remoteCustomUserData.js":
@@ -8,6 +7,7 @@
   \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ CustomData)
@@ -88,6 +88,7 @@ class CustomData {
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getAccessToken": () => (/* binding */ getAccessToken),
@@ -202,11 +203,8 @@ async function setIntegrationToken(token) {
 /*!***************************************!*\
   !*** ./src/helpers/external_links.js ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ "electron");
-/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);
 // Convenient way for opening links in external browser, not in the app.
 // Useful especially if you have a lot of links to deal with.
 //
@@ -221,7 +219,9 @@ __webpack_require__.r(__webpack_exports__);
 //    <a href="http://google.com">google</a>
 //    <a href="http://bing.com">bing</a>
 // </p>
-
+const {
+  shell
+} = __webpack_require__(/*! electron */ "electron");
 
 const supportExternalLinks = event => {
   let href;
@@ -237,7 +237,7 @@ const supportExternalLinks = event => {
     }
 
     if (href && isExternal) {
-      electron__WEBPACK_IMPORTED_MODULE_0__.shell.openExternal(href);
+      shell.openExternal(href);
       event.preventDefault();
     } else if (element.parentElement) {
       checkDomElement(element.parentElement);
@@ -257,6 +257,7 @@ document.addEventListener("click", supportExternalLinks, false);
   \***********************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("@electron/remote");
 
 /***/ }),
@@ -267,6 +268,7 @@ module.exports = require("@electron/remote");
   \***************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("electron");
 
 /***/ }),
@@ -277,6 +279,7 @@ module.exports = require("electron");
   \*******************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("electron-log");
 
 /***/ }),
@@ -287,6 +290,7 @@ module.exports = require("electron-log");
   \*****************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("fs-jetpack");
 
 /***/ }),
@@ -297,6 +301,7 @@ module.exports = require("fs-jetpack");
   \*************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("keytar");
 
 /***/ }),
@@ -307,6 +312,7 @@ module.exports = require("keytar");
   \*********************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("os");
 
 /***/ }),
@@ -317,6 +323,7 @@ module.exports = require("os");
   \*************************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = JSON.parse('{"name":"development","authorize_url":"https://webexapis.com/v1/authorize","access_token_url":"https://webexapis.com/v1/access_token","response_type":"code","client_secret":"ab8aa135e6a050fd81a3bec592441eb15717c4c8ec8663546398d4dccbafa4f1","client_id":"Cfec612082a3fee7f005bb59cc38a54e98c38e1af8011b0f19e1bd9fcb15c379b","redirect_uri":"http://localhost/","state":"Production","scope":"spark:xapi_statuses spark:xapi_commands spark-admin:devices_read spark-admin:devices_write spark-admin:licenses_read spark-admin:places_read spark-admin:places_write spark-admin:workspaces_read spark-admin:workspace_metrics_read"}');
 
 /***/ })
@@ -390,8 +397,9 @@ module.exports = JSON.parse('{"name":"development","authorize_url":"https://webe
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!*************************!*\
   !*** ./src/setGuest.js ***!
   \*************************/
@@ -399,6 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var electron_log__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron-log */ "electron-log");
 /* harmony import */ var electron_log__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron_log__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _helpers_external_links_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/external_links.js */ "./src/helpers/external_links.js");
+/* harmony import */ var _helpers_external_links_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_helpers_external_links_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _CE_Producer_services_oauth_credStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CE-Producer/services/oauth/credStore */ "./src/CE-Producer/services/oauth/credStore.js");
 /* harmony import */ var _CE_Producer_services_customUserData_remoteCustomUserData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CE-Producer/services/customUserData/remoteCustomUserData */ "./src/CE-Producer/services/customUserData/remoteCustomUserData.js");
 
