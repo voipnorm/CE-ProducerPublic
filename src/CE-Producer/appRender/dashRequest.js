@@ -3,6 +3,7 @@ import {getStatusText} from '../helpers/processStatusCodes';
 
 import CustomData from '../services/customUserData/remoteCustomUserData';
 import request from "../services/httpRequests/axiosRequest";
+import qs from 'qs';
 
 import https from 'https';
 
@@ -29,7 +30,8 @@ export default async (data) => {
                 url = "devices?orgId=" + data.value + "&max=1000";
             }
             if (data.option === "tags") {
-                url = "devices?tag=" + data.value + "&max=1000";
+                let tag = "?" + qs.stringify({tag:data.value});
+                url = "devices" + tag + "&max=1000";
             }
             if (data.option === 'callStatus') {
                 url = `xapi/status?deviceId=${data.id}&name=Call%5B*%5D.*`;

@@ -6,7 +6,7 @@ Build main table
  */
 import "./helpers/external_links.js";
 import log from "electron-log";
-import dash from './CE-Producer/appRender/dash'
+import {dashBoard, getDeviceDetails} from './CE-Producer/appRender/dash'
 import dashRequest from "./CE-Producer/appRender/dashRequest";
 import dashError from "./CE-Producer/appRender/dashError";
 import updates from "./CE-Producer/updates/updates";
@@ -23,14 +23,19 @@ updates();
 
 let token;
 let deployment = {};
-let endpoints;
-let liveDevices = [];
+let endpoints;//Static data used to load the liveDevices array and request connections
+let removedDevices = []; //devices that have been removed from the current dashboard
+let liveDevices = [];//Device array after connection has been requested through the join conference
 let username, password;
+let job;
+let liveTags;//tags that are currently being used to download webex devices
+let arguements = {};
 
 //endpoints contains the cloud DB data used to create the session data stored in the liveDevices array
 
-async function loadData(tags){
+async function loadData(tags, reload){
     try{
+        liveTags = tags;
         dashMLog.info("Loading dashboard");
         ipcRenderer.send("TokenRequest",{type: "accessGet", token: null});
         ipcRenderer.on("TokenRequest-reply", async (event, args) => {
@@ -38,24 +43,14 @@ async function loadData(tags){
             token = args.token;
             if(args.type === "accessGet"){
                 //log.info(args)
-                let args = {
+                arguements = {
                     token: token,
-                    value: tags,
+                    value: liveTags,
                     option: "tags"
                 }
 
-                await tableData(args);
-                var job = new CronJob(
-                    '05 * * * * *',
-                    async function() {
-                        await tableData(args)
-                    },
-                    null,
-                    true,
-                    'America/Los_Angeles'
-                );
-                job.start()
-
+                await tableData(arguements);
+                await createJob(arguements);
             }
         })
     }catch(e){
@@ -63,13 +58,41 @@ async function loadData(tags){
     }
 }
 
+async function createJob(args){
+    try{
+        job = new CronJob(
+            '05 * * * * *',
+            async function() {
+                await tableData(args)
+            },
+            null,
+            true,
+            'America/Los_Angeles'
+        );
+        return job.start()
+    }catch(e){
+        log.error(e);
+        return
+    }
+}
+
+async function cancelJob(){
+    try{
+        job = null;
+        return
+    }catch(e){
+        log.error(e);
+        return
+    }
+}
+
 ipcRenderer.on('msgToMainWindow', async (event, args) => {
-    let tags = args.tags;
+    liveTags = args.tags;
     username = args.username;
     password = args.password;
 
-    log.info("My tags: "+tags);
-    loadData(tags);
+    log.info("My tags: "+liveTags);
+    loadData(liveTags);
 })
 
 async function tableData(args){
@@ -79,9 +102,37 @@ async function tableData(args){
     if(counter > 1 ) requestWCH.renew = true;
     dashMLog.info("Dashboard counter, request number: "+ counter);
     endpoints = requestWCH.items;
-    dash(requestWCH, args);
+
+    //before building dashboard check if any endpoints are removed
+    let filtered = await filterRemovedDevices();
+    endpoints = filtered;
+    log.info(filtered)
+    dashBoard(endpoints, args);
     return
 }
+
+document.getElementById("addTagbtn").addEventListener('click', async function (event) {
+    let newtag = document.getElementById('addTag').value;
+    liveTags = liveTags+","+newtag;
+    job.stop();
+    job = null;
+    //update to tags in arguements
+    arguements = {
+        token: token,
+        value: liveTags,
+        option: "tags"
+    }
+    await createJob(arguements);
+    await tableData(arguements);
+});
+
+document.getElementById("removeDevice").addEventListener('click', async function (event) {
+    await removedDevicesCheck();
+    job.stop();
+    job = null;
+    await createJob(arguements);
+    await tableData(arguements);
+});
 
 document.getElementById("remoteDial").addEventListener('click', async function (event) {
     //read settings to ensure endpoint joins in the correct state
@@ -91,6 +142,8 @@ document.getElementById("remoteDial").addEventListener('click', async function (
 
     document.getElementById('remoteDial').style.display = 'none';
     document.getElementById('remoteDisconnect').style.display = '';
+    document.getElementById('addTagbtn').disabled = true;
+    document.getElementById('removeDevice').disabled = true;
 
     let dialstring = document.getElementById('remoteTarget').value;
     let videoMute = document.getElementById('muteVideoCheck').checked;
@@ -113,6 +166,9 @@ document.getElementById("remoteDisconnect").addEventListener('click', async func
     //disconnect from call and reset device to orignal state
     document.getElementById('remoteDisconnect').style.display = 'none';
     document.getElementById('remoteDial').style.display = '';
+
+    document.getElementById('addTagbtn').disabled = false;
+    document.getElementById('removeDevice').disabled = false;
     liveDevices.forEach(async (ep) => {
         await ep.disconnect();
         await ep.closeConnect();
@@ -127,6 +183,13 @@ document.getElementById("muteAll").addEventListener('click', async function (eve
     })
 
 });
+
+/*
+Remove device is a three step process:
+Remove device from current table
+Remove device after any future requests to webex are made
+
+ */
 //toggle buttons from goLive to muteMe
 
 //monitoring the table for changes to the endpoint desired state
@@ -225,6 +288,41 @@ async function endpointOptions(id){
             reject(e)
         }
     })
+}
+//check that any removed devices to not return to the live dashboard
+async function removedDevicesCheck(){
+    return new Promise(async (resolve,reject) => {
+        try{
+            let selectedInfo =  await getDeviceDetails();
+            selectedInfo.forEach(endpoint =>{
+                removedDevices.push(endpoint);
+            });
+            let filtered = await filterRemovedDevices();
+            endpoints = filtered;
+            resolve(log.info(endpoints))
+        }catch(e){
+            log.error(e)
+            reject(e)
+        }
+    })
+}
 
+async function filterRemovedDevices(){
+    return new Promise((resolve, reject) => {
+        try{
+            if(removedDevices.length === 0){
+                resolve(endpoints)
+            } else {
+                let yFilter = removedDevices.map(itemY => { return itemY.id; });
 
+                let filteredX = endpoints.filter(itemX => !yFilter.includes(itemX.id));
+
+                resolve(filteredX)
+
+            }
+        }catch(e){
+            log.error(e)
+            reject(e)
+        }
+    })
 }

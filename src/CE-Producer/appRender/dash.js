@@ -6,7 +6,7 @@ import Tabulator from 'tabulator-tables';
 //import "../../../helpers/external_links.js";
 import dashRequest from "./dashRequest";
 
-var Chart = require('chart.js');
+//var Chart = require('chart.js');
 
 
 const dashTabLog = log.scope("DashTable");
@@ -19,7 +19,7 @@ let endpointTableData = [];
 
 ///ip/web/call-control shell.openExternal(href);
 
-export default async (data, args) => {
+async function dashBoard(data, args){
     try{
         dashTabLog.info(data);
         let withStatus = await checkStatus(data, args);
@@ -27,13 +27,15 @@ export default async (data, args) => {
         //set values for overall results
 
         if(withStatus.renew === true){
-            return table.updateData(withStatus.items);
+            return table.updateData(withStatus);
         }
         table = new Tabulator("#dashboard-table", {
-            data:withStatus.items,
+            data:withStatus,
             index:"id",
-            height:600, // Set height of table, this enables the Virtual DOM and improves render speed
-            width: 1100,
+            //height:600, // Set height of table, this enables the Virtual DOM and improves render speed
+            width: 1400,
+
+            //layout: "fitData",
             layout:"fitColumns",
             //headerSort:false,                   // Disable header sorter
             resizableColumns:true,             // Disable column resize
@@ -42,6 +44,7 @@ export default async (data, args) => {
             pagination: "local",       //paginate the data
             paginationSize: 25,         //allow 7 rows per page of data
             paginationSizeSelector:[25, 50, 100, 200, true],
+            selectable:true,
             columns:[
                 {title:"System", field:"displayName", sorter:"string",headerFilter:false},
                 {title: "Go Live", field:"connect", formatter: "html", headerSort:false},
@@ -74,7 +77,7 @@ export default async (data, args) => {
 function checkStatus(data, args){
     return new Promise(async (resolve, reject) => {
         try{
-
+            log.info(data)
             let connectE = 0, disconectedE = 0, connectedWithIssuesE = 0;
             //Arrays
             let connectivity, channel, product;
@@ -83,7 +86,7 @@ function checkStatus(data, args){
 
             let beta = 0, stable = 0, latest = 0, preview = 0;
 
-            data.items.forEach(async function(endpoint){
+            data.forEach(async function(endpoint){
                 switch(endpoint.connectionStatus){
                     case "connected":
                         endpoint.status = 1;
@@ -132,7 +135,7 @@ function checkStatus(data, args){
                 firstRun = false;
             }
 
-            let promises = data.items.map(async (endpoint) => {
+            let promises = data.map(async (endpoint) => {
                 log.info(endpoint)
                 if(endpoint.connectionStatus === "disconnected") return endpoint.callStatus = "Disconnected";
                 endpoint.callStatus = await checkCallStatus(endpoint, args);
@@ -194,3 +197,21 @@ function checkCallStatus(endpoint, args){
     })
 }
 
+function getDeviceDetails(){
+    return new Promise(async (resolve, reject) => {
+        try{
+            let selectedData = await table.getSelectedData();
+            log.info(selectedData);
+            //data needs to be processed to return only whats needed
+            resolve(selectedData)
+        }catch(e){
+            log.error(e)
+            reject(e);
+        }
+    })
+    //recover device details of device selected in table
+
+    //
+}
+
+export {dashBoard, getDeviceDetails}
