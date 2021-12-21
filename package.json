@@ -10,7 +10,7 @@
   "main": "app/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/voipnorm/CE-Producer.git"
+    "url": "https://github.com/voipnorm/CE-Producer-Builds.git"
   },
   "build": {
     "appId": "com.example.ce-producer",
