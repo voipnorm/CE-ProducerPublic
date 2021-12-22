@@ -1,4 +1,4 @@
-const {BrowserWindow} = require('electron');
+import {BrowserWindow} from "electron";
 
 export default {
   label: "Development",

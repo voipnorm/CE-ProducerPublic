@@ -8,7 +8,7 @@ import url from "url";
 import appMenuTemplate from "./menu/app_menu_template";
 import editMenuTemplate from "./menu/edit_menu_template";
 import devMenuTemplate from "./menu/dev_menu_template";
-//import createWindow from "./helpers/window";
+import createWindow from "./helpers/window";
 import keytar from 'keytar';
 import log from "electron-log";
 import jetpack from "fs-jetpack";
@@ -26,10 +26,12 @@ import customUserData from "./CE-Producer/services/customUserData/customUserData
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from "env";
+import {BrowserWindow} from 'electron';
+import {app, Menu, ipcMain, shell, dialog} from 'electron';
 
-const { app, Menu, ipcMain, shell, dialog, BrowserWindow} = require("electron");
-const remoteMain = require("@electron/remote/main");
-remoteMain.initialize();
+import { initialize, enable as enableRemote } from "@electron/remote/main";
+
+initialize();
 
 const {autoUpdater} = require('electron-updater');
 
@@ -55,7 +57,7 @@ const setApplicationMenu = () => {
     Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
 };
 //Check for custom settings file
-checkCustomExistance();
+//checkCustomExistance();
 
 
 // We can communicate with our window (the renderer process) via messages.
@@ -85,7 +87,7 @@ app.on("ready", async () => {
         },
         show: false
     });
-    remoteMain.enable(mainWindow.webContents);
+    enableRemote(mainWindow.webContents);
     //perform checks to make sure we are ready to go before letting someone login
     //checks to perform: is there a valid guest issuer ID stored
     //checks to perform: have they accepted the default integration
@@ -173,6 +175,7 @@ async function login() {
                 // in your production app.
                 nodeIntegration: true,
                 contextIsolation: false,
+
                 // Spectron needs access to Producer module
 
             },
@@ -181,7 +184,7 @@ async function login() {
             resizable: false,
             show: false
         });
-        remoteMain.enable(loginWindow.webContents);
+        enableRemote(loginWindow.webContents);
         loginWindow.loadURL(
             url.format({
                 pathname: path.join(__dirname, "login.html"),
@@ -339,10 +342,11 @@ function openConnectWindow(args) {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+
         },
         resizable: true,
     });
-    remoteMain.enable(connectWindow.webContents);
+    enableRemote(connectWindow.webContents);
     connectWindow.webContents.once("did-finish-load", () => {
         connectWindow.webContents.send('msgToConnectWindow', args);
     })
@@ -402,12 +406,13 @@ async function intialSetup(args) {
                 nodeIntegration: true,
                 contextIsolation: false,
                 // Spectron needs access to Producer module
+
             },
             frame: false,
             skipTaskbar: true,
             resizable: false,
         });
-        remoteMain.enable(setupWindow.webContents);
+        enableRemote(setupWindow.webContents);
         setupWindow.loadURL(
             url.format({
                 pathname: path.join(__dirname, "setGuest.html"),
