@@ -6,7 +6,7 @@
 import path from "path";
 import url from "url";
 import appMenuTemplate from "./menu/app_menu_template";
-import editMenuTemplate from "./menu/edit_menu_template";
+//import editMenuTemplate from "./menu/edit_menu_template";
 import devMenuTemplate from "./menu/dev_menu_template";
 import createWindow from "./helpers/window";
 import keytar from 'keytar';
@@ -50,7 +50,7 @@ if (env.name !== "production") {
 }
 
 const setApplicationMenu = () => {
-    const menus = [appMenuTemplate, editMenuTemplate];
+    const menus = [appMenuTemplate];//, editMenuTemplate];
     if (env.name !== "production") {
         menus.push(devMenuTemplate);
     }
