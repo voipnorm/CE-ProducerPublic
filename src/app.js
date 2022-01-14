@@ -14,7 +14,7 @@ import xCommandEndpoint from "./CE-Producer/appRender/deviceLocal";
 
 
 const {ipcRenderer} = require('electron');
-const {dialog} = require('@electron/remote');
+const {dialog, BrowserWindow} = require('@electron/remote');
 const dashMLog = log.scope("DashboardMain");
 var CronJob = require('cron').CronJob;
 
@@ -112,6 +112,9 @@ async function tableData(args) {
     return
 }
 
+document.getElementById("reload").addEventListener('click', async function (event) {
+    BrowserWindow.getFocusedWindow().webContents.reloadIgnoringCache();
+});
 document.getElementById("addTagbtn").addEventListener('click', async function (event) {
     let newtag = document.getElementById('addTag').value;
     liveTags = liveTags + "," + newtag;
