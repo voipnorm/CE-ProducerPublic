@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CE-Producer/appRender/dash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,7 +419,8 @@
       <workItem from="1636749148256" duration="6135000" />
       <workItem from="1638200227840" duration="91684000" />
       <workItem from="1640129977564" duration="4085000" />
-      <workItem from="1641855268184" duration="31331000" />
+      <workItem from="1641855268184" duration="33574000" />
+      <workItem from="1642523818296" duration="1125000" />
     </task>
     <task id="LOCAL-00001" summary="UI framework">
       <created>1636743281380</created>
@@ -505,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642185100218</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="reload app button">
+      <created>1642186613435</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1642186613435</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -557,7 +565,8 @@
     <MESSAGE value="Revert &quot;build repo added&quot;&#10;&#10;This reverts commit ea3d97d96eebee4b7aea2c848edf26a92e756bec." />
     <MESSAGE value="Fix for electron/remote error" />
     <MESSAGE value="table updates to stop refreshs killing the table" />
-    <option name="LAST_COMMIT_MESSAGE" value="table updates to stop refreshs killing the table" />
+    <MESSAGE value="reload app button" />
+    <option name="LAST_COMMIT_MESSAGE" value="reload app button" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/scripts/notarize.js">

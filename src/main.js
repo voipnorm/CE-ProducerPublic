@@ -141,6 +141,9 @@ app.on("ready", async () => {
     autoUpdater.on('error', (err) => {
         mainWindow.webContents.send('update-error', err);
     })
+    if (env.name === "development") {
+        mainWindow.openDevTools();
+    }
 });
 
 app.on("window-all-closed", () => {

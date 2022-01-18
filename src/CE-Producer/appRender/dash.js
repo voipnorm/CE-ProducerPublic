@@ -51,7 +51,11 @@ async function dashBoard(data, args) {
             paginationSizeSelector: [25, 50, 100, 200, true],
             selectable: true,
             columns: [
-                {title: "App", field: "appConnected", sorter: "string", headerFilter: false},
+                {title:"AppStatus", field:"appstatus",hozAlign:"center",formatter:"traffic", formatterParams:{
+                        min:0,
+                        max:10,
+                        color:["green","orange","red"]
+                    }},
                 {title: "System", field: "displayName", sorter: "string", headerFilter: false},
                 {title: "Go Live", field: "connect", formatter: "html", headerSort: false},
                 {title:"Go Live Controls",
@@ -136,6 +140,17 @@ function checkStatus(data, args) {
                         break
                     default:
                         endpoint.status = 10;
+                        break
+                }
+                switch (endpoint.appConnected) {
+                    case true:
+                        endpoint.appstatus = 1;
+                        break
+                    case false:
+                        endpoint.appstatus = 10;
+                        break
+                    default:
+                        endpoint.appstatus = 10;
                         break
                 }
                 let p = endpoint.product;
