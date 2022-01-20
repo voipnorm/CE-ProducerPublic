@@ -3,8 +3,8 @@
   "authorize_url": "https://webexapis.com/v1/authorize",
   "access_token_url": "https://webexapis.com/v1/access_token",
   "response_type": "code",
-  "client_secret": "db5823d5ee046a02eb1546d8275988be1ae2214fc30800d0ad372bcfb972f4e3",
-  "client_id": "C5428b83db0579a3985b1095ae297d2784f626a749db1bb3feaad02bfd863c8b8",
+  "client_secret": "da0006bec218235f4833e3253989795de57086098924c15b5b085b8c181e7d4d",
+  "client_id": "C47d9a52423bb7c8727301e7602bc687bb266ae45281b475fd3345b3729c61f12",
   "redirect_uri": "http://localhost/",
   "state": "Production",
   "scope": "spark:xapi_statuses spark:xapi_commands spark-admin:devices_read spark-admin:devices_write spark-admin:licenses_read spark-admin:places_read spark-admin:places_write spark-admin:workspaces_read spark-admin:workspace_metrics_read"
