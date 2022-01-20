@@ -324,7 +324,7 @@ module.exports = require("os");
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"development","authorize_url":"https://webexapis.com/v1/authorize","access_token_url":"https://webexapis.com/v1/access_token","response_type":"code","client_secret":"ab8aa135e6a050fd81a3bec592441eb15717c4c8ec8663546398d4dccbafa4f1","client_id":"Cfec612082a3fee7f005bb59cc38a54e98c38e1af8011b0f19e1bd9fcb15c379b","redirect_uri":"http://localhost/","state":"Development","scope":"spark:xapi_statuses spark:xapi_commands spark-admin:devices_read spark-admin:devices_write spark-admin:licenses_read spark-admin:places_read spark-admin:places_write spark-admin:workspaces_read spark-admin:workspace_metrics_read"}');
+module.exports = JSON.parse('{"name":"development","authorize_url":"https://webexapis.com/v1/authorize","access_token_url":"https://webexapis.com/v1/access_token","response_type":"code","client_secret":"db5823d5ee046a02eb1546d8275988be1ae2214fc30800d0ad372bcfb972f4e3","client_id":"C5428b83db0579a3985b1095ae297d2784f626a749db1bb3feaad02bfd863c8b8","redirect_uri":"http://localhost/","state":"Production","scope":"spark:xapi_statuses spark:xapi_commands spark-admin:devices_read spark-admin:devices_write spark-admin:licenses_read spark-admin:places_read spark-admin:places_write spark-admin:workspaces_read spark-admin:workspace_metrics_read"}');
 
 /***/ })
 

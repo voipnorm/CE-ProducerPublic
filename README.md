@@ -8,6 +8,8 @@ where a producer is in control of video devices that require advanced muting and
 To install CEP go to the latest release within this Github repo and download the Mac or Windows 
 installation files(Mac(dmg), Windows(exe)).
 
+## 
+
 ## Features
 
 * Control audio/video mute and audio volume for video endpoints.

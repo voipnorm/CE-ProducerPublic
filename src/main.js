@@ -44,6 +44,7 @@ let {authorize_url, access_token_url, response_type, client_secret, client_id, r
 // Save userData in separate folders for each environment.
 // Thanks to this you can use production and development versions of the app
 // on same machine like those are two separate apps.
+log.info(env.name);
 if (env.name !== "production") {
     const userDataPath = app.getPath("userData");
     app.setPath("userData", `${userDataPath} (${env.name})`);

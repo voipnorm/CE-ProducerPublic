@@ -120,6 +120,7 @@ document.getElementById("addTagbtn").addEventListener('click', async function (e
     liveTags = liveTags + "," + newtag;
     job.stop();
     job = null;
+    counter = 0;
     //update to tags in arguements
     arguements = {
         token: token,
@@ -131,6 +132,7 @@ document.getElementById("addTagbtn").addEventListener('click', async function (e
 });
 
 document.getElementById("removeDevice").addEventListener('click', async function (event) {
+    counter = 0;
     await cycleDashboard();
 });
 
@@ -157,15 +159,17 @@ document.getElementById("connect").addEventListener('click', async function (eve
                 //create a new liveDevice and push into ld Array
                 let ld = new xCommandEndpoint(ep);
                 await ld.connect();
+                log.info(`Connected to endpoint ${ep.ip} setting appConnected to true`);
                 ep.appConnected = true
                 liveDevices.push(ld)
             } catch (e) {
                 ep.appConnected = false;
+                log.info("Failed to connect to endpoint");
                 log.error(e);
             }
 
         })
-        log.info(endpoints)
+        log.info("endpoints connection completed, cycling dashboard")
         await cycleDashboard()
     } catch (e) {
         log.error("Connecting to endpoints failed " + e);

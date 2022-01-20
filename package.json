@@ -2,7 +2,7 @@
   "name": "CE-Producer",
   "productName": "CE-Producer",
   "description": "CE-Producer desktop app",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "private": true,
   "author": "Chris Norman <christno@cisco.com>",
   "copyright": "© 2021 Cisco Systems inc.",
