@@ -5,8 +5,8 @@ Thumbs.db
 
 /dist
 /temp
-/config/env_development.json
-/config/env_production.json
+/config
+
 
 # ignore everything in 'app' folder what had been generated from 'src' folder
 /app/app.js
