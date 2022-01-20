@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/icons/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/setGuest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/setGuest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/splash.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/splash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env_development.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/env_development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env_production.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/env_production.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon.icns" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icon.icns" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icons/512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,7 +420,7 @@
       <workItem from="1638200227840" duration="91684000" />
       <workItem from="1640129977564" duration="4085000" />
       <workItem from="1641855268184" duration="33574000" />
-      <workItem from="1642523818296" duration="9975000" />
+      <workItem from="1642523818296" duration="10699000" />
     </task>
     <task id="LOCAL-00001" summary="UI framework">
       <created>1636743281380</created>
@@ -545,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642527010314</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="integration update">
+      <created>1642707766731</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1642707766731</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -601,7 +597,8 @@
     <MESSAGE value="app status center align" />
     <MESSAGE value="license updated" />
     <MESSAGE value="build naming update and version" />
-    <option name="LAST_COMMIT_MESSAGE" value="build naming update and version" />
+    <MESSAGE value="integration update" />
+    <option name="LAST_COMMIT_MESSAGE" value="integration update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/scripts/notarize.js">

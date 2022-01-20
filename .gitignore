@@ -5,11 +5,14 @@ Thumbs.db
 
 /dist
 /temp
+/config/env_development.json
+/config/env_production.json
 
 # ignore everything in 'app' folder what had been generated from 'src' folder
 /app/app.js
 /app/main.js
 /app/**/*.map
+
 
 # dotenv environment variables file
 .env
