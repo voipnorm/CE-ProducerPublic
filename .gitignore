@@ -5,7 +5,7 @@ Thumbs.db
 
 /dist
 /temp
-/config
+
 
 
 # ignore everything in 'app' folder what had been generated from 'src' folder
