@@ -30,13 +30,7 @@ installation files(Mac(dmg), Windows(exe)).
 4. Local network access to all endpoints that are to be controlled by CEP.
 5. Webex Control Hub Integration Client ID and Secret(required for custom builds only).
 
-## Usage
 
-1. Log into CEP using your configure device tags to filter your devices.
-2. Configure mute options for your video endpoints.
-3. Join video devices to an in-progress meeting. 
-Meeting must be in progress otherwise devices may be stuck at "Are you the Host".
-4. Select devices to "Go Live" as desired.
 
 ## How To Use Demo
 
@@ -45,6 +39,13 @@ Video coming soon......
 ## Pre-Built CE-Producer Package Installation
 
 Download and install the latest release from the [release section](https://github.com/voipnorm/CE-ProducerPublic/releases).
+## Pre Built Package Usage
+
+1. Log into CEP using your configure device tags to filter your devices.
+2. Configure mute options for your video endpoints.
+3. Join video devices to an in-progress meeting.
+   Meeting must be in progress otherwise devices may be stuck at "Are you the Host".
+4. Select devices to "Go Live" as desired.
 
 ## Using This Code
 

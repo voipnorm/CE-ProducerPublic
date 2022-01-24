@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="" />
+    <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -417,7 +419,7 @@
       <workItem from="1640129977564" duration="4085000" />
       <workItem from="1641855268184" duration="33574000" />
       <workItem from="1642523818296" duration="16114000" />
-      <workItem from="1643043939709" duration="2098000" />
+      <workItem from="1643043939709" duration="2427000" />
     </task>
     <task id="LOCAL-00001" summary="UI framework">
       <created>1636743281380</created>
@@ -580,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643050082979</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Readme updates">
+      <created>1643050370867</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1643050370867</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
