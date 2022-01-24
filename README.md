@@ -28,6 +28,7 @@ installation files(Mac(dmg), Windows(exe)).
 2. Endpoints are tagged appropriately in Webex Control Hub.
 3. Endpoints have local admin accounts configured.
 4. Local network access to all endpoints that are to be controlled by CEP.
+5. Webex Control Hub Integration Client ID and Secret(required for custom builds only).
 
 ## Usage
 
@@ -41,6 +42,28 @@ Meeting must be in progress otherwise devices may be stuck at "Are you the Host"
 
 Video coming soon......
 
+## Pre-Built Package Installation
+
+Download and install the latest release from the [release section](https://github.com/voipnorm/CE-ProducerPublic/releases).
+
+## Using this Code
+
+CE-Producer is built upon an [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate). To install your own Webex Intgration ID and Secret
+make sure to update both the env_production and env_development JSON files using the suggested format under the config folder. See example below:
+```json
+{
+  "name": "development",
+  "authorize_url": "https://webexapis.com/v1/authorize",
+  "access_token_url": "https://webexapis.com/v1/access_token",
+  "response_type": "code",
+  "client_secret": "<yourSecret>",
+  "client_id": "<yourClientID>",
+  "redirect_uri": "http://localhost/",
+  "state": "Production",
+  "scope": "spark:xapi_statuses spark:xapi_commands spark-admin:devices_read spark-admin:devices_write spark-admin:licenses_read spark-admin:places_read spark-admin:places_write spark-admin:workspaces_read spark-admin:workspace_metrics_read"
+}
+```
+For more information on config file usage refer to [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate).
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

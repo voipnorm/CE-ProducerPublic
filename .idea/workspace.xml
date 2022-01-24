@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3827a377-70a7-4072-bd4a-ecc099afdc93" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/setGuest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/setGuest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env_development.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/env_development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env_production.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/env_production.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -424,7 +421,7 @@
       <workItem from="1640129977564" duration="4085000" />
       <workItem from="1641855268184" duration="33574000" />
       <workItem from="1642523818296" duration="16114000" />
-      <workItem from="1643043939709" duration="422000" />
+      <workItem from="1643043939709" duration="1778000" />
     </task>
     <task id="LOCAL-00001" summary="UI framework">
       <created>1636743281380</created>
@@ -573,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642717186445</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="integration update">
+      <created>1643044394877</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1643044394877</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
