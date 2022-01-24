@@ -34,7 +34,7 @@ installation files(Mac(dmg), Windows(exe)).
 
 ## How To Use Demo
 
-Video coming soon......
+[Using CE-Producer demo video](https://app.vidcast.io/share/4373deda-c9f7-4416-93bd-3e61034a4ba3)
 
 ## Pre-Built CE-Producer Package Installation
 
