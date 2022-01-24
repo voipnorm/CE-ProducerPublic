@@ -42,11 +42,11 @@ Meeting must be in progress otherwise devices may be stuck at "Are you the Host"
 
 Video coming soon......
 
-## Pre-Built Package Installation
+## Pre-Built CE-Producer Package Installation
 
 Download and install the latest release from the [release section](https://github.com/voipnorm/CE-ProducerPublic/releases).
 
-## Using this Code
+## Using This Code
 
 CE-Producer is built upon an [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate). To install your own Webex Intgration ID and Secret
 make sure to update both the env_production and env_development JSON files using the suggested format under the config folder. See example below:
@@ -64,6 +64,14 @@ make sure to update both the env_production and env_development JSON files using
 }
 ```
 For more information on config file usage refer to [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate).
+
+Install and starting CE-Producer code.
+```
+git clone https://github.com/voipnorm/CE-ProducerPublic.git
+cd CE-ProducerPublic
+npm install
+npm start
+```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
