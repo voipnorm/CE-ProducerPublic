@@ -29,59 +29,65 @@ async function dashBoard(data, args) {
             //refresh data function
             log.info("Table refresh");
             return table.updateData(withStatus);
-        }
+        }else{
+            let withGoLiveCheck = await buildGolLiveChecks(withStatus);
 
-        let withGoLiveCheck = await buildGolLiveChecks(withStatus);
+            table = new Tabulator("#dashboard-table", {
+                data: withGoLiveCheck,
+                index: "id",
+                //height:600, // Set height of table, this enables the Virtual DOM and improves render speed
+                width: 1400,
 
-        table = new Tabulator("#dashboard-table", {
-            data: withGoLiveCheck,
-            index: "id",
-            //height:600, // Set height of table, this enables the Virtual DOM and improves render speed
-            width: 1400,
-
-            layout: "fitData",
-            //layout: "fitColumns",
-            //headerSort:false,                   // Disable header sorter
-            columnHeaderVertAlign:"bottom",
-            resizableColumns: true,             // Disable column resize
-            responsiveLayout: true,              // Enable responsive layouts
-            placeholder: "No Data Available",
-            pagination: "local",       //paginate the data
-            paginationSize: 25,         //allow 7 rows per page of data
-            paginationSizeSelector: [25, 50, 100, 200, true],
-            selectable: true,
-            columns: [
-                {title:"AppStatus", field:"appstatus",hozAlign:"center",formatter:"traffic", formatterParams:{
+                layout: "fitData",
+                //layout: "fitColumns",
+                //headerSort:false,                   // Disable header sorter
+                columnHeaderVertAlign:"bottom",
+                resizableColumns: true,             // Disable column resize
+                responsiveLayout: true,              // Enable responsive layouts
+                placeholder: "No Data Available",
+                pagination: "local",       //paginate the data
+                paginationSize: 25,         //allow 7 rows per page of data
+                paginationSizeSelector: [25, 50, 100, 200, true],
+                selectable: true,
+                columns: [
+                    {title:"AppStatus", field:"appstatus",hozAlign:"center",formatter:"traffic", formatterParams:{
+                            min:0,
+                            max:10,
+                            color:["green","orange","red"]
+                        }},
+                    {title: "System", field: "displayName", sorter: "string", headerFilter: false},
+                    {title:"System Status",
+                        columns:[
+                            {title: "Mic", field: "statusAudio", formatter: "html", headerSort: false, headerVertical:true},
+                            {title: "Video", field: "statusVideo", formatter: "html", headerSort: false, headerVertical:true},
+                            {title: "Volume", field: "statusVolume", formatter: "html", headerSort: false, headerVertical:true},
+                        ]
+                    },
+                    {title: "", field: "connect", formatter: "html", headerSort: false},
+                    {title:"Go Live Controls",
+                        columns:[
+                            {title: "Mute Mic", field: "muteMic", formatter: "html", headerSort: false, headerVertical:true},
+                            {title: "Mute Vid", field: "muteVideo", formatter: "html", headerSort: false, headerVertical:true},
+                            {title: "Mute Vol", field: "muteVolume", formatter: "html", headerSort: false, headerVertical:true},
+                            {title: "Set Vol", field: "setVolume", formatter: "html", headerSort: false, headerVertical:true},
+                        ]
+                    },
+                    /*{title:"Status", field:"status", formatter:"traffic", formatterParams:{
                         min:0,
                         max:10,
                         color:["green","orange","red"]
-                    }},
-                {title: "System", field: "displayName", sorter: "string", headerFilter: false},
-                {title: "Go Live", field: "connect", formatter: "html", headerSort: false},
-                {title:"Go Live Controls",
-                    columns:[
-                        {title: "Mute Mic", field: "muteMic", formatter: "html", headerSort: false, headerVertical:true},
-                        {title: "Mute Video", field: "muteVideo", formatter: "html", headerSort: false, headerVertical:true},
-                        {title: "Mute Volume", field: "muteVolume", formatter: "html", headerSort: false, headerVertical:true},
-                        {title: "Set Volume", field: "setVolume", formatter: "html", headerSort: false, headerVertical:true},
-                    ]
+                    }},*/
+                    {title: "Call Status", field: "callStatus", sorter: "string", formatter: "html"},
+                    {title: "IP Address", field: "ip", formatter: customLinkformat},
+                    //{title: "Tags", field: "tags", headerFilter: false},
+                ],
+                rowClick: function (e, row) {
+                    log.info(row);
                 },
-                /*{title:"Status", field:"status", formatter:"traffic", formatterParams:{
-                    min:0,
-                    max:10,
-                    color:["green","orange","red"]
-                }},*/
-                {title: "Call Status", field: "callStatus", sorter: "string", formatter: "html"},
-                {title: "IP Address", field: "ip", formatter: customLinkformat},
-                {title: "Tags", field: "tags", headerFilter: false},
-            ],
-            rowClick: function (e, row) {
-                log.info(row);
-            },
-        });
+            });
 
-        return
-
+            return
+        }
     } catch (e) {
         dashTabLog.error(e);
     }
@@ -90,6 +96,9 @@ function buildGolLiveChecks(data){
    return new Promise(async (resolve, reject) => {
        try{
            let promises = data.map(async (endpoint) => {
+               endpoint.statusVolume = `<div id="statVol.${endpoint.id}"></div>`
+               endpoint.statusVideo = `<div id="statVid.${endpoint.id}"></div>`
+               endpoint.statusAudio = `<div id="statAud.${endpoint.id}"></div>`;
                endpoint.connect = `<div class="form-check">
                                 <button id="goLive.${endpoint.id}" value="goLive.${endpoint.id}" type="button" class="connectButton btn btn-success btn-sm">Go Live</button>
                                 <button id="muteMe.${endpoint.id}" value="muteMe.${endpoint.id}" type="button" style="display: none;" class="connectButton btn btn-danger btn-sm">Mute Me</button>
@@ -117,13 +126,13 @@ function checkStatus(data, args) {
             log.info(data)
             let connectE = 0, disconectedE = 0, connectedWithIssuesE = 0;
             //Arrays
-            let connectivity, channel, product;
+            let connectivity;
 
             let roomKit = 0, board = 0, desk = 0, share = 0, legacy = 0;
 
             let beta = 0, stable = 0, latest = 0, preview = 0;
 
-            data.forEach(async function (endpoint) {
+            data.map(async function (endpoint) {
                 switch (endpoint.connectionStatus) {
                     case "connected":
                         endpoint.status = 1;
@@ -153,32 +162,9 @@ function checkStatus(data, args) {
                         endpoint.appstatus = 10;
                         break
                 }
-                let p = endpoint.product;
-                switch (true) {
-                    case /Cisco Webex Board.*/.test(p):
-                        board++
-                        break
-                    case /Cisco Webex Room Kit.*/.test(p):
-                        roomKit++
-                        break
-                    case /Cisco Webex Share.*/.test(p):
-                        share++
-                        break
-                    case /Cisco Webex Desk Pro/.test(p):
-                    case /Cisco Webex DX80/.test(p):
-                        desk++
-                        break
-                    default:
-                        legacy++
-                        break
-                }
-
                 dashTabLog.log(endpoint.displayName + ": " + endpoint.connectionStatus + " = " + endpoint.status)
             })
-
-            product = [board, roomKit, share, desk, legacy];
             connectivity = [connectE, disconectedE, connectedWithIssuesE];
-            channel = [beta, stable, latest, preview];
             if (firstRun === true) {
                 firstRun = false;
             }

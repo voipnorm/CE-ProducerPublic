@@ -22,15 +22,20 @@ export default class xCommandEndpoint extends EventEmitter {
         this.wsurl = `ws://${endpoint.ip}/ws`;
         this.wssurl = `wss://${endpoint.ip}/ws`;
         this.endpoint = endpoint;
+        this.connectionState = false;
         this.xapi;
         this.callId;
         this.videoState;
         this.audioState;
+        this.videoMute = false;
+        this.audioMute = false;
+        this.volumeMute = false;
     }
+
     connect() {
-        mcE.info("SSH connection requested "+this.endpoint.ip);
+        mcE.info("SSH connection requested " + this.endpoint.ip);
         return new Promise((resolve, reject) => {
-            let url =  this.url;
+            let url = this.wsurl;
             mcE.info(url);
             let options = {
                 username: this.username,
@@ -40,10 +45,10 @@ export default class xCommandEndpoint extends EventEmitter {
                 .on('error', (e) => {
                     mcE.error(e);
                     //try websocket if ssh fails to connect TBD
-                    if(e === "Connection terminated remotely"|| e === "client-socket"){
-                        mcE.error("SSH failed to connect trying to use Websockets");
+                    if (e === "Connection terminated remotely" || e === "client-socket") {
+                        mcE.error("WS failed to connect trying to use SSH");
                         this.xapi.close();
-                        this.xapi = jsxapi.connect(this.wsurl, options)
+                        this.xapi = jsxapi.connect(this.url, options)
                             .on('error', async (e) => {
                                 mcE.error(e);
                                 let errorstatus = 'danger';
@@ -54,24 +59,31 @@ export default class xCommandEndpoint extends EventEmitter {
                                 reject({status: errorstatus, message: errormessage})
                             })
                             .on('ready', async (xapi) => {
-                                mcE.info("WS Connection established "+this.endpoint.ip);
+                                this.connectionState = true;
+                                mcE.info("SSH Connection established, some feature may not work with SSH. " + this.endpoint.ip);
+                                await this.initialAudioStatus();
+                                this.monitorFeedBackStatus();
                                 resolve()
                             });
-                    }else{
+                    } else {
                         mcE.error(e);
                         reject(e)
                     }
                 })
                 .on('ready', async (xapi) => {
-                    mcE.info("SSH Connection established "+this.endpoint.ip);
+                    this.connectionState = true;
+                    mcE.info("WS Connection established " + this.endpoint.ip);
+                    await this.initialAudioStatus();
+                    this.monitorFeedBackStatus();
                     resolve()
                 });
         })
     };
+
     xCommand(command, commandKey, args) {
         return new Promise(async (resolve, reject) => {
-            try{
-                mcE.info("before sending request"+ JSON.stringify(args));
+            try {
+                mcE.info("before sending request" + JSON.stringify(args));
                 mcE.info("launch xCommand on-prem");
                 if (command === "Command") {
                     let response = await this.xapi[command][commandKey](args);
@@ -85,7 +97,7 @@ export default class xCommandEndpoint extends EventEmitter {
                     resolve(response)
                 }
                 if (command === "Config") {
-                    if(commandKey === ''){
+                    if (commandKey === '') {
                         let response = this.xapi[command].get(args);
                         mcE.info(response);
                         resolve(response)
@@ -94,7 +106,7 @@ export default class xCommandEndpoint extends EventEmitter {
                     mcE.info(response);
                     resolve(response)
                 }
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 //need to do something during a http tiimeout. Fetch failed most likely
                 //because of FW issues. Needs to be fixed and process restarted
@@ -102,210 +114,332 @@ export default class xCommandEndpoint extends EventEmitter {
             }
         })
     };
-    feedback(commandKey){
-        mcE.info("setting up feedback for upgrade");
-        const off = this.xapi.feedback.on(commandKey, (event) => {
-            mcE.info(event);
-            this.emit("feedback", event);
-            if(event === "AboutToInstallUpgrade"){
-                off();
-            }
+
+    feedback(command, commandKey, eventName) {
+        mcE.info("setting up feedback listeners");
+        const off = this.xapi[command][commandKey].on((event) => {
+            //mcE.info(event);
+            this.emit(eventName, event);
+            //process events
         });
         this.xapi.on("error", error => {
-            mcE.error("Feedback error: "+ error);
+            mcE.error("Feedback error: " + error);
         })
     };
+
     async closeConnect() {
         await this.xapi.close();
         return mcE.info(`connexion closed for ${this.endpoint.ip || this.endpoint.url}`);
     };
-    join(dialString){
+
+    join(dialString) {
         return new Promise(async resolve => {
-            try{
-                let command  =  "dial";
+            try {
+                let command = "dial";
                 let args = {Number: dialString};
-                let response = await this.xCommand("Command",command, args);
+                let response = await this.xCommand("Command", command, args);
                 //this.closeConnect();
-                this.callId =  response.CallId;
+                this.callId = response.CallId;
 
                 command = "Audio.Microphones.Mute";
-                let response2 = await this.xCommand("Command",command);
+                let response2 = await this.xCommand("Command", command);
                 log.info(response2);
 
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    disconnect(){
+
+    disconnect() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "call.disconnect";
-                let args =  { CallId: this.callId };
-                let response = await this.xCommand("Command",command, args);
+            try {
+                let command = "call.disconnect";
+                let args = {CallId: this.callId};
+                let response = await this.xCommand("Command", command, args);
                 log.info(response);
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    muteVolume(){
+
+    muteVolume() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Audio.Volume.Mute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Audio.Volume.Mute";
+                let response = await this.xCommand("Command", command);
+                this.volumeMute = true;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
 
     }
-    unmuteVolume(){
+
+    unmuteVolume() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Audio.Volume.Unmute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Audio.Volume.Unmute";
+                let response = await this.xCommand("Command", command);
+                this.volumeMute = false;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
 
     }
-    setVolume(volume){
+
+    setVolume(volume) {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Audio.Volume.Set";
+            try {
+                let command = "Audio.Volume.Set";
                 let args = {Level: volume};
-                let response = await this.xCommand("Command",command, args);
+                let response = await this.xCommand("Command", command, args);
                 //this.closeConnect();
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    getVolume(){
+
+    getVolume() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "";
+                let response = await this.xCommand("Command", command);
                 //this.closeConnect();
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    muteVideo(){
+
+    muteVideo() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Video.Input.MainVideo.Mute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Video.Input.MainVideo.Mute";
+                let response = await this.xCommand("Command", command);
                 this.videoState = "muted";
+                this.videoMute = true;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    unmuteVideo(){
+
+    unmuteVideo() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Video.Input.MainVideo.Unmute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Video.Input.MainVideo.Unmute";
+                let response = await this.xCommand("Command", command);
                 this.videoState = "muted";
+                this.videoMute = false;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e);
                 resolve(e)
             }
         })
     }
-    muteMicrophone(){
+
+    muteMicrophone() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Audio.Microphones.Mute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Audio.Microphones.Mute";
+                let response = await this.xCommand("Command", command);
                 //this.closeConnect();
+                this.audioMute = true;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e)
                 resolve(e)
             }
         })
     }
-    unmuteMicrophone(){
+
+    unmuteMicrophone() {
         return new Promise(async resolve => {
-            try{
-                let command  =  "Audio.Microphones.Unmute";
-                let response = await this.xCommand("Command",command);
+            try {
+                let command = "Audio.Microphones.Unmute";
+                let response = await this.xCommand("Command", command);
                 //this.closeConnect();
+                this.audioMute = false;
                 resolve(response)
-            }catch(e){
+            } catch (e) {
                 mcE.error(e)
                 resolve(e)
             }
         })
     }
-    goLive(options){
+
+    goLive(options) {
         return new Promise(async resolve => {
-            try{
+            try {
                 //set endpoint options based on selections in table
-                if(options.muteMic === false){
+                if (options.muteMic === false) {
                     await this.unmuteMicrophone();
                     this.audioState = true;
                 }
-                if(options.muteVideo === false){
+                if (options.muteVideo === false) {
                     await this.unmuteVideo();
                     this.audioState = true;
                 }
-                if(options.muteVolume === false){
+                if (options.muteVolume === false) {
                     await this.unmuteVolume()
                 }
-                if(options.setVolume === true){
+                if (options.setVolume === true) {
                     let volume = document.getElementById('volumeRange').value;
                     await this.setVolume(volume)
                 }
                 resolve(log.info("Endpoint Live"))
-            }catch(e){
+            } catch (e) {
                 mcE.error(e)
                 resolve(e)
             }
         })
     }
-    muteMe(options){
+
+    muteMe(options) {
         return new Promise(async resolve => {
-            try{
+            try {
                 //'muteVolume', 'setVolume', 'muteMic', 'muteVideo'
                 //set endpoint options based on selections in table
                 let videoMute = document.getElementById('muteVideoCheck').checked;
 
-                if(options.muteMic === false || options.muteMic === true){
+                if (options.muteMic === false || options.muteMic === true) {
                     await this.muteMicrophone();
                     this.audioState = false;
                 }
-                if(options.muteVideo === true || videoMute === true){
+                if (options.muteVideo === true || videoMute === true) {
                     await this.muteVideo();
                 }
-                if(options.muteVolume === true){
+                if (options.muteVolume === true) {
                     await this.muteVolume();
                 }
                 resolve(log.info("Endpoint Muted"))
-            }catch(e){
+            } catch (e) {
                 mcE.error(e)
                 resolve(e)
             }
         })
     }
+
+    monitorFeedBackStatus() {
+        //Testing using feedback to monintor status of mic, video and volume
+        log.info("Adding status monitoring");
+        this.feedback("Status", "Video.Input.MainVideoMute", "muteVideo");
+        this.on("muteVideo", (data) => {
+            log.info(data)
+            if (data === "Off") {
+                log.info("Toggle Video Icon");
+                document.getElementById(`statVid.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#camera-video"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/camera-video.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statVid.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#camera-video-off"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/camera-video-off.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+        });
+        this.feedback("Status", "Audio.Microphones.Mute", "muteAudio");
+        this.on("muteAudio", (data) => {
+            log.info(data)
+            log.info(data)
+            if (data === "Off") {
+                log.info("Toggle Audio Icon");
+                document.getElementById(`statAud.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#mic"/></svg>`;
+                    //`<img src="./contents/icons/iconsSVG/mic.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statAud.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#mic-mute"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/mic-mute.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+        });
+        this.feedback("Status", "Audio.VolumeMute", "muteVol");
+        this.on("muteVol", (data) => {
+            log.info(data)
+            if (data === "Off") {
+                log.info("Toggle Video Icon");
+                document.getElementById(`statVol.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#volume-up"/></svg>`;
+                    //`<img src="./contents/icons/iconsSVG/volume-up.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statVol.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#volume-off"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/volume-off.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+        })
+    }
+
+    async initialAudioStatus() {
+        return new Promise(async resolve => {
+            let commandKey = "Video.Input.MainVideoMute";
+            let responseVid = await this.xCommand("Status", commandKey);
+            //do something with response
+            log.info(responseVid);
+            if (responseVid === "Off") {
+                log.info("Toggle Video Icon");
+                document.getElementById(`statVid.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#camera-video"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/camera-video.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statVid.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#camera-video-off"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/camera-video-off.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+            resolve();
+            commandKey = "Audio.Microphones.Mute";
+            let responseAud = await this.xCommand("Status", commandKey);
+            if (responseAud === "Off") {
+                log.info("Toggle Audio Icon");
+                document.getElementById(`statAud.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#mic"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/mic.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statAud.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#mic-mute"/></svg>`
+                    //`<img src="./contents/icons/iconsSVG/mic-mute.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+
+            commandKey = "Audio.VolumeMute";
+            let responseVol = await this.xCommand("Status", commandKey);
+            if (responseVol === "Off") {
+                log.info("Toggle Video Icon");
+                document.getElementById(`statVol.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#volume-up"/></svg>`
+                //`<img src="./contents/icons/iconsSVG/volume-up.svg" alt="Bootstrap" width="32" height="32">`;
+            } else {
+                document.getElementById(`statVol.${this.endpoint.id}`).innerHTML = `<svg class="bi" width="32" heclassName"32" fill="currentColor">
+                        <use xlink:href="./contents/icons/iconsBootstrap/bootstrap-icons.svg#volume-off"/></svg>`;
+                //`<img src="./contents/icons/iconsSVG/volume-off.svg" alt="Bootstrap" width="32" height="32">`;
+            }
+        })
+
+    }
+
+    updateTableStatus() {
+
+    }
 }
+
+/*
+endpoint.statusVolume = `<img src="./contents/icons/iconsSVG/volume-up.svg" alt="Bootstrap" width="32" height="32">`
+endpoint.statusVideo = `<img src="./contents/icons/iconsSVG/camera-video.svg" alt="Bootstrap" width="32" height="32">`
+endpoint.statusAudio = `<img src="./contents/icons/iconsSVG/mic.svg" alt="Bootstrap" width="32" height="32">`;
+ */

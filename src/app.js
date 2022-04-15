@@ -97,18 +97,27 @@ ipcRenderer.on('msgToMainWindow', async (event, args) => {
 })
 
 async function tableData(args) {
+    if (counter === 0) {
+        args.renew = false;
+    } else {
+        args.renew = true
+    }
+
     counter += 1;
     let requestWCH = await dashRequest(args);
     if (requestWCH.Error) return dashError("dashboard-table", requestWCH.Error);
-    if (counter > 1) args.renew = true;
+
     dashMLog.info("Dashboard counter, request number: " + counter);
     endpoints = requestWCH.items;
 
     //before building dashboard check if any endpoints are removed
     let filtered = await filterRemovedDevices();
+
+
+
     endpoints = filtered;
     log.info(filtered)
-    dashBoard(endpoints, args);
+    await dashBoard(endpoints, args);
     return
 }
 
@@ -139,7 +148,7 @@ document.getElementById("removeDevice").addEventListener('click', async function
 //connect the application to all devices in the table before you start to control them.
 document.getElementById("connect").addEventListener('click', async function (event) {
     try {
-        //open ssh session before controlling endpoint
+        //open websocket or ssh session before controlling endpoint
         liveDevices = [];
 
         document.getElementById('connect').style.display = 'none';
@@ -219,7 +228,7 @@ document.getElementById("remoteDisconnect").addEventListener('click', async func
 
     document.getElementById('addTagbtn').disabled = false;
     document.getElementById('removeDevice').disabled = false;
-    liveDevices.forEach(async (ep) => {
+    liveDevices.map(async (ep) => {
         await ep.disconnect();
     })
 
@@ -477,7 +486,7 @@ async function liveDevicesCheck() {
 }
 
 async function cycleDashboard() {
-    //check is devices are connected to app via ssh to populate table
+    //check if devices are connected to app via ssh to populate table
     return new Promise(async (resolve, reject) => {
         try {
             await removedDevicesCheck();
